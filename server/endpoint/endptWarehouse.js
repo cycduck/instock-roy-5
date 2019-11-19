@@ -11,7 +11,8 @@ const test = (request, response) => {
 const postWarehouse = (request, response) => {
   console.log('receiving object and posting new warehouse');
   const data = response.body;
-  data.forEach(item => {if(item === undefined){
+  //checks if any of the data sent is undifined or empty
+  data.forEach(item => {if(item === undefined || item === " "){
     response.status(404).send(`${item} field is empty`)
   }});
   const newWarehouse = {
