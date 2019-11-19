@@ -11,7 +11,7 @@ app.use('/', middleware);
 // app.use('/', route);
 
 //inventory data route
-app.use('/inventory', route)
+app.use('/', route)
 
 
 app.listen(8080, ()=> {

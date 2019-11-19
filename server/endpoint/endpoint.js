@@ -9,9 +9,9 @@ const inventoryData = require ('../data/inventory.json')
 //   response.status(200).send('testing path works')
 // }
 
-//Inventory data func.
+//PATH: /inventory
 const inventory = (request, response) => {
-  console.log('data sent')
+  console.log('inventory data sent')
   response.status(200).send(inventoryData);
 }
 module.exports = {
