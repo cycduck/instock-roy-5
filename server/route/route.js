@@ -4,9 +4,11 @@ const endptInvent = require('../endpoint/endptInventory');
 const endptWare = require('../endpoint/endptWarehouse');
 
 
-// K: PATH: /test
+
 router.get("/", endptWare.test);
 
+// router.get("/", endpoint.test);
+router.get('/inventory', endptInvent.inventory)
 // K: PATH /inventory
 router.delete("/inventory/:inventoryId", endptInvent.inventDelete);
 
