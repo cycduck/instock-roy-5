@@ -8,9 +8,9 @@ const endptWare = require('../endpoint/endptWarehouse');
 router.get("/", endptWare.test);
 
 // K: PATH /inventory
+router.get("/inventory/:inventoryId", endptInvent.inventGetItem) 
 router.delete("/inventory/:inventoryId", endptInvent.inventDelete);
 
-router.get("/inventory/:inventoryId", endptInvent.inventGetItem)
 
 
 module.exports = router;
