@@ -15,7 +15,18 @@ const inventDelete = (request, response) => {
   console.log('new inventory after inventory DELETE', inventory)
 }
 
+
+const inventGetItem = (request, response) => {
+  const i = inventory.find(info => info.id === request.params.inventoryId) // Searches in the array and find the item of the matching ID
+  if (i === -1) { // if not found send failure message
+    response.status(404).send('Inventory with the ID cannot be found')
+  } else { 
+    response.status(200).send(i) 
+  }
+}
+
 module.exports = {
   // K: put function names here with commas
-  inventDelete
+  inventDelete,
+  inventGetItem
 }
