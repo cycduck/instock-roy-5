@@ -22,10 +22,10 @@ const postToInventory = (request, response) =>{
       warehouseId: 'W3'
 };
 if(!request.body.name || !request.body.quantity || !request.body.lastOrdered ||!request.body.location){
-    response.send(404, 'Item could not be added')
+    response.status(400).send('Item could not be added')
   } else {
     inventoryData.push(newInventoryItem);
-    response.send(202, newInventoryItem);
+    response.status(200).send(newInventoryItem);
   }
 
 }
