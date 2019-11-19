@@ -1,10 +1,33 @@
 const express = require('express');
 const inventoryData = require('../data/inventory.json');
+const nanoid = require('nanoid');
 
 //PATH: /inventory
 const inventory = (request, response) => {
   console.log('inventory data sent')
   response.status(200).send(inventoryData);
+}
+
+// POST request for new inventory item PATH:/inventory
+const postToInventory = (request, response) =>{
+  const newInventoryItem = {
+      id: nanoid(5),
+      name: request.body.name,
+      description: request.body.description,
+      quantity: request.body.quantity,
+      lastOrdered: request.body.lastOrdered,
+      location: request.body.location,
+      isInstock: true,
+      categories: "Footwear, Safety, Construction",
+      warehouseId: 'W3'
+};
+if(!request.body.name || !request.body.quantity || !request.body.lastOrdered ||!request.body.location){
+    response.send(404, 'Item could not be added')
+  } else {
+    inventoryData.push(newInventoryItem);
+    response.send(202, newInventoryItem);
+  }
+
 }
 
 // K: PATH /inventory/:inventoryId
@@ -23,5 +46,6 @@ const inventDelete = (request, response) => {
 module.exports = {
   // K: put function names here with commas
   inventory,
-  inventDelete
+  inventDelete,
+  postToInventory
 }
