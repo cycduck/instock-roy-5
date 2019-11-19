@@ -17,11 +17,11 @@ const inventDelete = (request, response) => {
 
 
 const inventGetItem = (request, response) => {
-  const i = inventory.find(info => info.id === request.params.inventoryId) // Searches in the array and find the item of the matching ID
-  if (i === -1) { // if not found send failure message
+  const item = inventory.find(item => item.id === request.params.inventoryId) // Searches in the array and find the item of the matching ID
+  if (item === -1) { // if not found send failure message
     response.status(404).send('Inventory with the ID cannot be found')
   } else { 
-    response.status(200).send(i) 
+    response.status(200).send(item) 
   }
 }
 
