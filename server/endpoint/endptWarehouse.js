@@ -1,5 +1,5 @@
 const express = require('express');
-
+const location = require('../data/locations.json');
 
 // K: PATH: /test
 const test = (request, response) => {

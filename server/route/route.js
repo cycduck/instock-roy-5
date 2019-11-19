@@ -1,11 +1,14 @@
 const express = require('express');
-const app = express();
 const router = express.Router();
-const endpoint = require('../endpoint/endpoint');
+const endptInvent = require('../endpoint/endptInventory');
+const endptWare = require('../endpoint/endptWarehouse');
 
 
 // K: PATH: /test
-router.get("/", endpoint.test);
+router.get("/", endptWare.test);
+
+// K: PATH /inventory
+router.delete("/inventory/:inventoryId", endptInvent.inventDelete);
 
 
 module.exports = router;
