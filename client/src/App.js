@@ -12,8 +12,8 @@ function App() {
   return (
     <BrowserRouter>
     {/* <nav>
-      <Link to="/Warehouse/:id"></Link>
-      <Link to="/Inventory/:id"></Link>
+      <Link to="/warehouse/:id"></Link>
+      <Link to="/inventory/:id"></Link>
     </nav> */}
     <h1>React Routes are ready to go!</h1>
     <Switch>
