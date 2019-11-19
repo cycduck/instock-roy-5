@@ -27,6 +27,7 @@ const inventGetItem = (request, response) => {
 
 module.exports = {
   // K: put function names here with commas
+  inventory,
   inventDelete,
   inventGetItem
 }
