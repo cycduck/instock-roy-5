@@ -5,7 +5,8 @@ const endptWare = require('../endpoint/endptWarehouse');
 
 
 
-router.get("/", endptWare.test);
+router.get("/warehouse", endptWare.test);
+router.post("/warehouse", endptWare.postWarehouse);
 
 // router.get("/", endpoint.test);
 router.get('/inventory', endptInvent.inventory)
