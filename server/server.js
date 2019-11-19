@@ -8,7 +8,10 @@ const route = require('./route/route');
 app.use('/', middleware);
 
 // Routes
-app.use('/', route);
+// app.use('/', route);
+
+//inventory data route
+app.use('/inventory', route)
 
 
 app.listen(8080, ()=> {
