@@ -1,0 +1,44 @@
+@import '../scss/fonts.scss';
+@import '../scss/mixin.scss' ;
+@import '../scss/variable.scss';
+
+html{
+    box-sizing: border-box;
+
+    /* This may have to be deleted later */
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.inventory{
+
+    &__page-title{
+        @include h1-web;
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    &__search-bar{
+        display: flex;
+        flex-direction: row;
+        height: 48px;
+        width: 150px;
+        border: 2px solid black;
+    }
+
+    &__search-icon{
+        margin-right: 5px;
+    }
+
+    &__search-field{
+        display: flex;
+        justify-self: center;
+        align-self: center;
+    }
+
+    
+}
