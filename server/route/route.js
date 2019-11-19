@@ -11,7 +11,9 @@ router.get('/inventory', endptInvent.inventory)
 router.post('/inventory', endptInvent.postToInventory)
 
 // K: PATH /inventory
+router.get("/inventory/:inventoryId", endptInvent.inventGetItem) 
 router.delete("/inventory/:inventoryId", endptInvent.inventDelete);
+
 
 
 module.exports = router;
