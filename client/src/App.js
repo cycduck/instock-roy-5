@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+// import applications modules
+import Warehouse from './components/Warehouse/Warehouse';
+import Inventory from './components/Inventory/Inventory';
+
 import './App.css';
+
+// setup for react router
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <nav>
+      <Link to="/Warehouse/:id"></Link>
+      <Link to="/Inventory/:id"></Link>
+    </nav>
+    <h1>React Routes are ready to go!</h1>
+    <Switch>
+      <Route path="/" exact component={Warehouse} />
+      <Route path="/Warehouse" component={Warehouse} />
+      <Route path="/Inventory" component={Inventory} />
+    </Switch>
+  </BrowserRouter>
+
   );
 }
 
