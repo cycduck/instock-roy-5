@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 // import applications modules
@@ -12,15 +11,15 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-    <nav>
+    {/* <nav>
       <Link to="/Warehouse/:id"></Link>
       <Link to="/Inventory/:id"></Link>
-    </nav>
+    </nav> */}
     <h1>React Routes are ready to go!</h1>
     <Switch>
       <Route path="/" exact component={Warehouse} />
-      <Route path="/Warehouse" component={Warehouse} />
-      <Route path="/Inventory" component={Inventory} />
+      <Route path="/warehouse" component={Warehouse} />
+      <Route path="/inventory" component={Inventory} />
     </Switch>
   </BrowserRouter>
 
@@ -28,17 +27,3 @@ function App() {
 }
 
 export default App;
-=======
-import React from 'react';
-import './App.scss';
-
-function App() {
-  return (
-    <div className="App">
-        Hello
-    </div>
-  );
-}
-
-export default App;
->>>>>>> develop
