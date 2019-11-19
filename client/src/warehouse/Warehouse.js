@@ -1,7 +1,8 @@
 import React, {Component } from 'react';
 import './warehouse.scss';
+import dots from '../assets/Icons/SVG/Icon-kebab-default.svg';
 
-export default class Warehouse extends Component {
+export default class Warehouse extends React.Component {
   
   
   render() {
@@ -9,7 +10,7 @@ export default class Warehouse extends Component {
 
     return(
       <section className="warehouse">
-        <div className="warehouse__info">
+        <div className="warehouse__wrapper">
           <h1 className="warehouse__large-title">warehouse Name</h1>
           <div className ="warehouse__container">
             <div className="warehouse__address">
@@ -37,26 +38,33 @@ export default class Warehouse extends Component {
           </div>
         </div>
         <div className="inventory">
-          <div className="inventory__top-category">
-            <h3>Item</h3>
-            <h3>Last Ordered</h3>
-            <h3>Location</h3>
-            <h3>quantity</h3>
-            <h3>status</h3>
+          <div className="inventory__warpper">
+            <div className="inventory__top-category">
+              <h3>Item</h3>
+              <h3>Last Ordered</h3>
+              <h3>Location</h3>
+              <h3>quantity</h3>
+              <h3>status</h3>
+            </div>
+            <li class="inventory__item">
+                <div className="inventory__info">
+                  <h3 class="inventory__category">Item</h3>                
+                  <h2 class="inventory__title">Product name</h2>
+                  <p class="inventory__detail">desc</p>
+                  <h3 class="inventory__category">Last Ordered</h3>
+                  <p class="inventory__detail">date</p>
+                  <h3 class="inventory__category">Location</h3>
+                  <p class="inventory__detail">San Franciso, CA</p>
+                  <h3 class="inventory__category">Quantity</h3>
+                  <p class="inventory__detail">999</p>
+                  <h3 class="inventory__category">Status</h3>
+                  <p class="inventory__detail">instock</p>
+                </div>
+                <div className="inventory__remove">
+                  <img class="inventory__dot" src={dots} value="#"/>
+                </div>
+            </li>
           </div>
-          <li class="inventory__item">
-              <h3 class="inventory__category">Item</h3>
-              <h2 class="inventory__title">Product name</h2>
-              <p class="inventory__info">desc</p>
-              <h3 class="inventory__category">Last Ordered</h3>
-              <p class="inventory__info">date</p>
-              <h3 class="inventory__category">Location</h3>
-              <p class="inventory__info">San Franciso, CA</p>
-              <h3 class="inventory__category">Quantity</h3>
-              <p class="inventory__info">999</p>
-              <h3 class="inventory__category">Status</h3>
-              <p class="inventory__info">instock</p>
-          </li>
         </div>
       </section>
     )

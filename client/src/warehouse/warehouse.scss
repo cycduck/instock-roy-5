@@ -4,8 +4,9 @@
 
 .warehouse{
   
-  &__info {
+  &__wrapper {
     background: white;
+    padding: 5%;
   }
 
   &__large-title{
@@ -63,11 +64,24 @@
 .inventory {
   background:$text-field-background-fill;
 
+  &__warpper {
+    padding: 5%;
+  }
   &__item {
     list-style-type: none;
     
+    @include tablet {
+      display: flex;
+    }
   }
 
+  &__info {
+    
+    @include tablet {
+      display: flex;
+      align-self: flex-end;
+    }
+  }
   &__top-category {
     display: none;
 
@@ -80,13 +94,17 @@
     @include h3-web;
     color: $text-label-style;
     text-transform: uppercase;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__title {
     @include h2-mobile;
   }
 
-  &__info {
+  &__detail {
     @include paragraph-web;
     color: $paragraph-text;
   }
