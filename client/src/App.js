@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 // import applications modules
@@ -27,3 +28,17 @@ function App() {
 }
 
 export default App;
+=======
+import React from 'react';
+import './App.scss';
+
+function App() {
+  return (
+    <div className="App">
+        Hello
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> develop
