@@ -8,7 +8,7 @@ render() {
     <div className="inventoryData__container">
         {this.props.data.map(item => {
         return (
-            <div className="inventoryData__sub-container">
+            <div key={item.id} className="inventoryData__sub-container">
             <div className="inventoryData__item-container">
                 {/* make this into a link */}
                 <div className="inventoryData__ellipsisMenu-btn">
@@ -42,7 +42,7 @@ render() {
                 <div className="inventoryData__status-title-container">
                 <p className="inventoryData__label">STATUS</p>
                 </div>
-                <p>{item.isInStock}</p>
+                <p>{item.isInstock ? "In Stock" : "Out Of Stock"}</p>
             </div>
             </div>
         );

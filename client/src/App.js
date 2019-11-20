@@ -8,17 +8,16 @@ import InventoryData from './inventory-data/InventoryData';
 export default class App extends Component {
   state = {
     inventoryData: [],
-    loading: true
   }
 
   componentDidMount(){
     //getting inventory data from backend
   axios.get('http://localhost:8080/inventory')
   .then(response => {
-    console.log('Got Inventory Data:', response.data)
+    // console.log('Got Inventory Data:', response.data)
     this.setState({
       inventoryData: response.data,
-      loading: false
+
     })
   })
   .catch(error =>{
