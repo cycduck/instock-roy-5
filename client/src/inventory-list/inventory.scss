@@ -25,19 +25,23 @@ html{
     &__search-bar{
         display: flex;
         flex-direction: row;
-        height: 48px;
-        width: 150px;
-        border: 2px solid black;
+        height: 53px;
+        width: 85%;
+        border-radius: 8px;
+        border: 2px solid $text-field-border;
+        background-color: $text-field-background-fill;
+        margin-bottom: 48px;
     }
 
     &__search-icon{
         margin-right: 5px;
-        margin-left:
+        margin-left: 10px;
     }
 
     &__search-field{
         display: flex;
         justify-self: center;
         align-self: center;
+        color: black;
     }
 }

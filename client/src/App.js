@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react'
+import axios from 'axios'
 import './App.scss';
 import Inventory from './inventory-list/Inventory';
+import InventoryData from './inventory-data/InventoryData';
 
-function App() {
-  return (
-    <div className="App">
-        <Inventory />
-    </div>
-  );
+
+export default class App extends Component {
+  state = {
+    inventoryData: [],
+    loading: true
+  }
+
+  componentDidMount(){
+    //getting inventory data from backend
+  axios.get('http://localhost:8080/inventory')
+  .then(response => {
+    console.log('Got Inventory Data:', response.data)
+    this.setState({
+      inventoryData: response.data,
+      loading: false
+    })
+  })
+  .catch(error =>{
+    alert(error)
+  });
+  }
+  render() {
+    return (
+      <div className="App">
+        <Inventory/>
+        <InventoryData data = {this.state.inventoryData} />
+      </div>
+    );
+  }
 }
-
-export default App;

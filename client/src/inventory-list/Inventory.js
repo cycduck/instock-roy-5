@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import './inventory.scss';
-
-//Importing Assets
 import searchIcon from '../assets/Icons/SVG/Icon-search.svg'
 
 export default class Inventory extends Component {
