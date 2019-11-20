@@ -20,7 +20,7 @@ const postToInventory = (request, response) =>{
       isInstock: true,
       categories: "Footwear, Safety, Construction",
       warehouseId: 'W3'
-};
+  };
 if(!request.body.name || !request.body.quantity || !request.body.lastOrdered ||!request.body.location){
     response.send(404, 'Item could not be added')
   } else {
