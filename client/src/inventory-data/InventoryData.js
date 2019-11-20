@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import ellipsisKebabMenu from "../assets/Icons/SVG/Icon-kebab-default.svg";
+import plusIcon from "../assets/Icons/SVG/Icon-add.svg"
 import "./inventoryData.scss";
 
 export default class InventoryData extends Component {
 render() {
     return (
     <div className="inventoryData__container">
+        <div className='inventoryData__blue-circle'>
+            <img className='inventoryData__plus-icon' src={plusIcon} alt=""/> 
+        </div>
         {this.props.data.map(item => {
         return (
             <div key={item.id} className="inventoryData__sub-container">
