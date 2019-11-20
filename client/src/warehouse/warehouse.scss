@@ -79,7 +79,9 @@
     
     @include tablet {
       display: flex;
-      align-self: flex-end;
+      align-items: center;
+      justify-content: center;
+
     }
   }
   &__top-category {
@@ -102,6 +104,10 @@
 
   &__title {
     @include h2-mobile;
+
+    @include tablet {
+      width: 10%;
+    }
   }
 
   &__detail {
