@@ -18,8 +18,10 @@ export default class App extends React.Component {
       this.setState({
         warehouseInvent: response.data
       })
+      console.log(response.data)
     })
   }
+
   componentDidMount(){
     //getting inventory data from backend
   axios.get('http://localhost:8080/inventory')

@@ -8,8 +8,30 @@ export default class Warehouse extends React.Component {
   
   render() {
     console.log(this.props.warehouseInvent)
-    
-    
+    const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = this.props.warehouseInvent
+    const infoList = this.props.warehouseInvent.map(info =>
+      <div className="inventory__info">
+        <div className="inventory__remove">
+          <h3 className="inventory__category">Item</h3> 
+          <img className="inventory__dot" src={dots} value="#"/>
+        </div>         
+          <div className="inventory__product-box">
+            <h2 className="inventory__title">{info.name}</h2>
+            <p className="inventory__detail">{info.description}</p>
+          </div>
+        <div className="inventory__separation">
+          <h3 className="inventory__category">Last Ordered</h3>
+          <p className="inventory__detail">{info.lastOrdered}</p>
+          <h3 className="inventory__category">Location</h3>
+          <p className="inventory__detail">{info.location}</p>
+          <h3 className="inventory__category">Quantity</h3>
+          <p className="inventory__detail">{info.quantity}</p>
+          <h3 className="inventory__category">Status</h3>
+          <p className="inventory__detail">{info.isInstock}</p>
+        </div>
+      </div>
+    )
+
     return(
       <section className="warehouse">
         <div className="warehouse__wrapper">
@@ -54,33 +76,7 @@ export default class Warehouse extends React.Component {
               </div>
             </div>
             <li className="inventory__item">
-              {console.log(this.props.warehouseInvent)}
-                {(this.props.warehouseInvent || []).map(info => { 
-                  
-                  const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = info
-                  return(
-
-                  <div className="inventory__info" key={id+name}>
-                    <div className="inventory__remove">
-                      <h3 className="inventory__category">Item</h3> 
-                      <img className="inventory__dot" src={dots} value="#"/>
-                    </div>         
-                      <div className="inventory__product-box">
-                        <h2 className="inventory__title">{name}</h2>
-                        <p className="inventory__detail">{description}</p>
-                      </div>
-                    <div className="inventory__separation">
-                      <h3 className="inventory__category">Last Ordered</h3>
-                      <p className="inventory__detail">{lastOrdered}</p>
-                      <h3 className="inventory__category">Location</h3>
-                      <p className="inventory__detail">{location}</p>
-                      <h3 className="inventory__category">Quantity</h3>
-                      <p className="inventory__detail">{quantity}</p>
-                      <h3 className="inventory__category">Status</h3>
-                      <p className="inventory__detail">{isInstock}</p>
-                    </div>
-                  </div>
-                )})}
+                {infoList}
             </li>
           </div>
         </div>

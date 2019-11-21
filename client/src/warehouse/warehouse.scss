@@ -79,6 +79,7 @@
     
     @include tablet {
       display: flex;
+      flex-direction: column;
     }
   }
 
