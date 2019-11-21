@@ -2,8 +2,6 @@ import React from 'react';
 import './App.scss';
 import axios from 'axios'
 import Warehouse from './warehouse/Warehouse';
-import Inventory from './delete/Inventory';
-import InventoryData from './delete/Inventorylist';
 
 export default class App extends React.Component {
   state = {
@@ -38,8 +36,6 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Warehouse warehouseData={this.state}/>
-        {/* <Inventory/>
-        <InventoryData data = {this.state.inventoryData} /> */}
       </div>
     );
   }
