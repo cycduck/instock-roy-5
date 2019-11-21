@@ -2,9 +2,23 @@ import React, { Component } from "react";
 import ellipsisKebabMenu from "../assets/Icons/SVG/Icon-kebab-default.svg";
 import plusIcon from "../assets/Icons/SVG/Icon-add.svg"
 import "./inventoryData.scss";
+import Removebtn from "../remove-btn/Removebtn";
 
 export default class InventoryData extends Component {
+
+state = {
+    toggle: false
+}
+
+handleToggle =(event) =>{
+    event.preventDefault();
+    this.setState({
+        toggle: true
+    })
+
+    }
 render() {
+    console.log(this.state)
     return (
     <div className="inventoryData__container">
         <div className="inventoryData__label-container-tablet">
@@ -24,7 +38,8 @@ render() {
             <div key={item.id} className="inventoryData__sub-container">
             <div className="inventoryData__item-container">
                 <div className="inventoryData__ellipsisMenu-btn">
-                <img src={ellipsisKebabMenu} alt="" />
+                <img src={ellipsisKebabMenu} alt="" onClick={this.handleToggle}/>
+                {this.state.toggle ? <Removebtn /> : null}
                 </div>
                 <div className="inventoryData__item-title-container">
                 <p className="inventoryData__label">ITEM</p>

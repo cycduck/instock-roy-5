@@ -1,0 +1,12 @@
+@import '../scss/fonts.scss';
+@import '../scss/mixin.scss' ;
+@import '../scss/variable.scss';
+
+.test{
+    color: red;
+}
+
+.test-container{
+    border: solid 2px black;
+    height: 30px;
+}
