@@ -26,6 +26,7 @@
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
+      width: 70%;
     }
   }
 
@@ -75,23 +76,69 @@
     }
   }
 
-  &__info {
-    
-    @include tablet {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-    }
-  }
   &__top-category {
     display: none;
 
     @include tablet {
       display: flex;
+      & .inventory__category-title {
+        width: 30%;
+      }
+    }
+  }
+  &__separation {
+    width: 70%;
+    @include flex-col;
+
+    @include tablet {
+      flex-direction: row;
+      & .inventory__category-title,
+      & .inventory__detail {
+        width: 22%;
+      }
+      & .inventory__category-title:first-child,
+      & .inventory__detail:nth-child(2) {
+        width: 30%;
+      }
+      & .inventory__category-title:nth-child(2),
+      & .inventory__detail:nth-child(4) {
+        width: 26%;
+      }
+    }
+  }
+  &__category-title {
+    @include h3-web;
+    color: $text-label-style;
+    text-transform: uppercase;
+
+  }
+  
+  &__info {
+    width: 100%;
+    @include tablet {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
   }
 
+  &__remove {
+    display: flex;
+    justify-content: space-between;
+    
+    @include tablet {
+      order: 5; // put it to the end
+      width: 0.01%;
+    }
+  }
+  &__product-box {
+    @include flex-col;
+    
+    @include tablet {
+      // flex-direction: row;
+      width: 30%;
+    }
+  }
   &__category {
     @include h3-web;
     color: $text-label-style;
@@ -106,12 +153,13 @@
     @include h2-mobile;
 
     @include tablet {
-      width: 10%;
+      
     }
   }
 
   &__detail {
     @include paragraph-web;
     color: $paragraph-text;
+    text-overflow: ellipsis;
   }
 }

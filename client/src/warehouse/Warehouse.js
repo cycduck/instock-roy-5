@@ -1,13 +1,25 @@
 import React, {Component } from 'react';
 import './warehouse.scss';
 import dots from '../assets/Icons/SVG/Icon-kebab-default.svg';
+import axios from 'axios';
 
 export default class Warehouse extends React.Component {
-  
+  state = {
+    warehouseInvent: [],
+  }
+  warehouseInvent = (warehouseId) => {
+    axios.get(`http://localhost:8080/warehouse/${warehouseId}/inventory`)
+    .then(response => {
+      console.log('receive inventory data by warehouse', response.data)
+      this.setState({
+        warehouseInvent: response.data
+      })
+    })
+  }
   
   render() {
-
-
+    
+    
     return(
       <section className="warehouse">
         <div className="warehouse__wrapper">
@@ -40,28 +52,35 @@ export default class Warehouse extends React.Component {
         <div className="inventory">
           <div className="inventory__warpper">
             <div className="inventory__top-category">
-              <h3>Item</h3>
-              <h3>Last Ordered</h3>
-              <h3>Location</h3>
-              <h3>quantity</h3>
-              <h3>status</h3>
+      {/* {this.warehouseInvent('W0')} */}
+              <h3 className="inventory__category-title">Item</h3>
+              <div className="inventory__separation">
+                <h3 className="inventory__category-title">Last Ordered</h3>
+                <h3 className="inventory__category-title">Location</h3>
+                <h3 className="inventory__category-title">quantity</h3>
+                <h3 className="inventory__category-title">status</h3>
+              </div>
             </div>
-            <li class="inventory__item">
+            <li className="inventory__item">
                 <div className="inventory__info">
-                  <h3 class="inventory__category">Item</h3>                
-                  <h2 class="inventory__title">Product name</h2>
-                  <p class="inventory__detail">desc</p>
-                  <h3 class="inventory__category">Last Ordered</h3>
-                  <p class="inventory__detail">date</p>
-                  <h3 class="inventory__category">Location</h3>
-                  <p class="inventory__detail">San Franciso, CA</p>
-                  <h3 class="inventory__category">Quantity</h3>
-                  <p class="inventory__detail">999</p>
-                  <h3 class="inventory__category">Status</h3>
-                  <p class="inventory__detail">instock</p>
-                </div>
-                <div className="inventory__remove">
-                  <img class="inventory__dot" src={dots} value="#"/>
+                  <div className="inventory__remove">
+                    <h3 className="inventory__category">Item</h3> 
+                    <img className="inventory__dot" src={dots} value="#"/>
+                  </div>         
+                    <div className="inventory__product-box">
+                      <h2 className="inventory__title">Product name</h2>
+                      <p className="inventory__detail">sdfasdfasfsadfasfsadfasfsafsfdasdfasf</p>
+                    </div>
+                  <div className="inventory__separation">
+                    <h3 className="inventory__category">Last Ordered</h3>
+                    <p className="inventory__detail">a lot of words</p>
+                    <h3 className="inventory__category">Location</h3>
+                    <p className="inventory__detail">San Franciso, CA</p>
+                    <h3 className="inventory__category">Quantity</h3>
+                    <p className="inventory__detail">999</p>
+                    <h3 className="inventory__category">Status</h3>
+                    <p className="inventory__detail">instock</p>
+                  </div>
                 </div>
             </li>
           </div>

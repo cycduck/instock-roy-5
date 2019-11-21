@@ -1,11 +1,23 @@
 const express = require('express');
 const location = require('../data/locations.json');
+const inventoryData = require('../data/inventory.json');
 const nanoId = require('nanoid');
 
-// K: PATH: /test
-const test = (request, response) => {
-  console.log('testing path works');
-  response.status(200).send('testing path works')
+// PATH: /warehouse
+const warehouse = (request, response) => {
+  console.log('all warehouse data sent')
+  response.status(200).send(location);
+}
+
+// PATH: /warehouse/:warehouseId/inventory
+const warehouseInvent = (request, response) => {
+  console.log('warehouse inventory requested, ID: ', request.params.warehouseId)
+  const warehouseInvent = inventoryData.filter(info => info.warehouseId === request.params.warehouseId)  // Searches in the data and return the array that matches
+  if (!warehouseInvent.length) { // array is empty
+    response.status(404).send('Warehouse with the ID cannot be found')
+  } else { 
+    response.status(200).send(warehouseInvent) 
+  }
 }
 
 const postWarehouse = (request, response) => {
@@ -37,6 +49,7 @@ const postWarehouse = (request, response) => {
 }
 module.exports = {
   // K: put function names here with commas
-  test,
+  warehouse,
+  warehouseInvent,
   postWarehouse
 }
