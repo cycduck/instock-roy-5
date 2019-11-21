@@ -9,6 +9,17 @@ const warehouse = (request, response) => {
   response.status(200).send(location);
 }
 
+// PATH: /warehouse/:warehouseId
+const warehousebyId = (request, response) => {
+  console.log('warehouseId', request.params.warehouseId)
+  const i = location.findIndex(info => info.id === request.params.warehouseId) // Searches in the array and find the index of the matching ID
+  if (i === -1) { // if not found send failure message
+    response.status(404).send('Inventory with the ID cannot be found')
+  } else { // If found at the index delete one item within location.json
+    response.status(200).send(location[i]) // Must return the new array as response
+  }
+}
+
 // PATH: /warehouse/:warehouseId/inventory
 const warehouseInvent = (request, response) => {
   console.log('warehouse inventory requested, ID: ', request.params.warehouseId)
@@ -50,6 +61,7 @@ const postWarehouse = (request, response) => {
 module.exports = {
   // K: put function names here with commas
   warehouse,
+  warehousebyId,
   warehouseInvent,
   postWarehouse
 }

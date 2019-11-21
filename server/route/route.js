@@ -5,6 +5,7 @@ const endptInvent = require('../endpoint/endptInventory');
 const endptWare = require('../endpoint/endptWarehouse');
 
 router.get("/warehouse", endptWare.warehouse);
+router.get("/warehouse/:warehouseId/", endptWare.warehousebyId);
 router.get("/warehouse/:warehouseId/inventory", endptWare.warehouseInvent)
 router.post("/warehouse", endptWare.postWarehouse);
 

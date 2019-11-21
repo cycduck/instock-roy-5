@@ -2,7 +2,6 @@ import React, {Component } from 'react';
 import './warehouse.scss';
 import dots from '../assets/Icons/SVG/Icon-kebab-default.svg';
 import arrow from '../assets/Icons/SVG/Icon-back-arrow.svg';
-import axios from 'axios';
 
 let screenChecker = () => {
   let w = window.screen.width
@@ -14,16 +13,52 @@ export default class Warehouse extends React.Component {
   
   
   render() {
-    console.log(this.props.warehouseInvent)
-    const infoList = (this.props.warehouseInvent || []).map(info => {
-      const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = info
-      
+    
+    const warehouseId = () => {
+      // check if the keys have value, can't check if the props have stuff cuz empty array is truthy
+      if(this.props.warehouseData.warehouse.name) {
+        const {id, name: warehouseName, address: {street, suiteNum, city,province,postal}, contact: {name, title, phone, email},inventoryCategories} = this.props.warehouseData.warehouse;
+        return (
+          <div className="warehouse__wrapper">
+            <div className="warehouse__back">
+              <img src={arrow}/>
+              <h1 className="warehouse__large-title">{warehouseName}</h1>
+            </div>
+            <div className ="warehouse__container">
+              <div className="warehouse__address">
+                <h3 className="warehouse__title">Address</h3>
+                <div className="warehouse__title-div">
+                  <p className="warehouse__detail">{street}</p>
+                  <p className="warehouse__detail-subtitle">{suiteNum}</p>
+                </div>
+                <div className="warehouse__subtitle-div">
+                  <p className="warehouse__detail-subtitle">{city+''+province}</p>
+                  <p className="warehouse__detail-subtitle">{postal}</p>
+                </div>
+              </div>
+              <div className="warehouse__contact">
+                <h3 className="warehouse__title">Contact</h3>
+                <div className="warehouse__title-div">
+                  <p className="warehouse__detail">{name}</p>
+                  <p className="warehouse__detail-subtitle">{title}</p>
+                </div>
+                <div className="warehouse__subtitle-div">
+                  <p className="warehouse__detail-subtitle">{phone}</p>
+                  <a className="warehouse__detail-subtitle" href="mailto:some-email">{email}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    }
 
+    const inventById = (this.props.warehouseData.warehouseInvent || []).map(info => {
+      const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = info;
+      
       const titleTrim = (info) => {
-        console.log(info)
         if (screenWidth >= 768) {
           let x = info.substring(0, 55);
-          console.log('what is this', info)
           return x + '...'
         } else {
           return info
@@ -53,41 +88,11 @@ export default class Warehouse extends React.Component {
           </div>
         </div>
       )
-    }
-    )
+    })
 
     return(
       <section className="warehouse">
-        <div className="warehouse__wrapper">
-          <div className="warehouse__back">
-            <img src={arrow}/>
-            <h1 className="warehouse__large-title">warehouse Name</h1>
-          </div>
-          <div className ="warehouse__container">
-            <div className="warehouse__address">
-              <h3 className="warehouse__title">Address</h3>
-              <div className="warehouse__title-div">
-                <p className="warehouse__detail">street</p>
-                <p className="warehouse__detail-subtitle">unit</p>
-              </div>
-              <div className="warehouse__subtitle-div">
-                <p className="warehouse__detail-subtitle">city</p>
-                <p className="warehouse__detail-subtitle">postal code</p>
-              </div>
-            </div>
-            <div className="warehouse__contact">
-              <h3 className="warehouse__title">Contact</h3>
-              <div className="warehouse__title-div">
-                <p className="warehouse__detail">Name</p>
-                <p className="warehouse__detail-subtitle">title</p>
-              </div>
-              <div className="warehouse__subtitle-div">
-                <p className="warehouse__detail-subtitle">phone</p>
-                <a className="warehouse__detail-subtitle" href="mailto:some-email">email</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        {warehouseId()}
         <div className="inventory">
           <div className="inventory__warpper">
             <div className="inventory__top-category">
@@ -100,7 +105,7 @@ export default class Warehouse extends React.Component {
               </div>
             </div>
             <li className="inventory__item">
-                {infoList}
+                {inventById}
             </li>
           </div>
         </div>

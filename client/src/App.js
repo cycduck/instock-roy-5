@@ -8,42 +8,36 @@ import InventoryData from './delete/Inventorylist';
 export default class App extends React.Component {
   state = {
     inventoryData: [],
+    warehouse: [],
     warehouseInvent: []
   }
 
-  warehouseInvent = (warehouseId) => {
-    axios.get(`http://localhost:8080/warehouse/${warehouseId}/inventory`)
-    .then(response => {
-      console.log('receive inventory data by warehouse', response.data)
+  // TODO: warehouse ID needs to be passed from params.match
+  getData = (warehouseId) => {
+    axios.all([
+      axios.get('http://localhost:8080/inventory'), // get all inventory
+      axios.get(`http://localhost:8080/warehouse/${warehouseId}`), // getting warehouse by ID
+      axios.get(`http://localhost:8080/warehouse/${warehouseId}/inventory`) // getting inventory by warehouse ID
+    ]).then(axios.spread((inventory, warehouse, warehouseInvent) => {
+      console.log(inventory, warehouse, warehouseInvent)
       this.setState({
-        warehouseInvent: response.data
+        inventoryData: inventory.data,
+        warehouse: warehouse.data,
+        warehouseInvent: warehouseInvent.data
       })
-      console.log(response.data)
-    })
+    }))
   }
 
+
+
   componentDidMount(){
-    //getting inventory data from backend
-  axios.get('http://localhost:8080/inventory')
-  .then(response => {
-    // console.log('Got Inventory Data:', response.data)
-    this.setState({
-      inventoryData: response.data,
-    })
-  })
-  .catch(error =>{
-    console.log(error)
-  });
-  console.log(!this.state.warehouseInvent)
-  // if(!this.state.warehouseInvent) {
-    this.warehouseInvent('W0');
-  // }
+    this.getData('W0')
 
   }
   render() {
     return (
       <div className="App">
-        <Warehouse warehouseInvent={this.state.warehouseInvent}/>
+        <Warehouse warehouseData={this.state}/>
         {/* <Inventory/>
         <InventoryData data = {this.state.inventoryData} /> */}
       </div>
