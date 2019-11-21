@@ -33,15 +33,15 @@ export default class App extends React.Component {
     console.log(error)
   });
   console.log(!this.state.warehouseInvent)
-  if(!this.state.warehouseInvent) {
+  // if(!this.state.warehouseInvent) {
     this.warehouseInvent('W0');
-  }
+  // }
 
   }
   render() {
     return (
       <div className="App">
-        <Warehouse {...this.state.warehouseInvent}/>
+        <Warehouse warehouseInvent={this.state.warehouseInvent}/>
         {/* <Inventory/>
         <InventoryData data = {this.state.inventoryData} /> */}
       </div>

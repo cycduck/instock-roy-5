@@ -7,8 +7,8 @@ import axios from 'axios';
 export default class Warehouse extends React.Component {
   
   render() {
-    console.log(this.props)
-    const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = this.props
+    console.log(this.props.warehouseInvent)
+    
     
     return(
       <section className="warehouse">
@@ -54,9 +54,13 @@ export default class Warehouse extends React.Component {
               </div>
             </div>
             <li className="inventory__item">
-              {console.log(this.props)}
-                {this.props.map(info => { return(
-                  <div className="inventory__info">
+              {console.log(this.props.warehouseInvent)}
+                {(this.props.warehouseInvent || []).map(info => { 
+                  
+                  const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = info
+                  return(
+
+                  <div className="inventory__info" key={id+name}>
                     <div className="inventory__remove">
                       <h3 className="inventory__category">Item</h3> 
                       <img className="inventory__dot" src={dots} value="#"/>
