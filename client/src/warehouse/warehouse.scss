@@ -75,12 +75,9 @@
     padding: 5%;
   }
   &__item {
+    @include flex-col;
     list-style-type: none;
     
-    @include tablet {
-      display: flex;
-      flex-direction: column;
-    }
   }
 
   &__top-category {
@@ -101,7 +98,7 @@
       flex-direction: row;
       & .inventory__category-title,
       & .inventory__detail {
-        width: 22%;
+        width: 21.6%;
       }
       & .inventory__category-title:first-child,
       & .inventory__detail:nth-child(2) {
@@ -122,6 +119,8 @@
   
   &__info {
     width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid $text-field-border;
     @include tablet {
       display: flex;
       align-items: flex-end;
@@ -135,7 +134,7 @@
     
     @include tablet {
       order: 5; // put it to the end
-      width: 0.01%;
+      width: 5px;
     }
   }
   &__product-box {
@@ -144,6 +143,7 @@
     @include tablet {
       // flex-direction: row;
       width: 30%;
+      padding-right: 15px;
     }
   }
   &__category {

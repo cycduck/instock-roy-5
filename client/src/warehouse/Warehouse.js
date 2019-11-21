@@ -4,32 +4,56 @@ import dots from '../assets/Icons/SVG/Icon-kebab-default.svg';
 import arrow from '../assets/Icons/SVG/Icon-back-arrow.svg';
 import axios from 'axios';
 
+let screenChecker = () => {
+  let w = window.screen.width
+  return w
+}
+let screenWidth = screenChecker()
+
 export default class Warehouse extends React.Component {
+  
   
   render() {
     console.log(this.props.warehouseInvent)
-    const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = this.props.warehouseInvent
-    const infoList = this.props.warehouseInvent.map(info =>
-      <div className="inventory__info">
-        <div className="inventory__remove">
-          <h3 className="inventory__category">Item</h3> 
-          <img className="inventory__dot" src={dots} value="#"/>
-        </div>         
-          <div className="inventory__product-box">
-            <h2 className="inventory__title">{info.name}</h2>
-            <p className="inventory__detail">{info.description}</p>
+    const infoList = (this.props.warehouseInvent || []).map(info => {
+      const {categories, description, id, isInstock, lastOrdered, location, name, quantity, warehouseId} = info
+      
+
+      const titleTrim = (info) => {
+        console.log(info)
+        if (screenWidth >= 768) {
+          let x = info.substring(0, 55);
+          console.log('what is this', info)
+          return x + '...'
+        } else {
+          return info
+        }
+      }
+      
+      return (
+
+        <div className="inventory__info">
+          <div className="inventory__remove">
+            <h3 className="inventory__category">Item</h3> 
+            <img className="inventory__dot" src={dots} value="#"/>
+          </div>         
+            <div className="inventory__product-box">
+              <h2 className="inventory__title">{name}</h2>
+              <p className="inventory__detail">{titleTrim(description)}</p>
+            </div>
+          <div className="inventory__separation">
+            <h3 className="inventory__category">Last Ordered</h3>
+            <p className="inventory__detail">{lastOrdered}</p>
+            <h3 className="inventory__category">Location</h3>
+            <p className="inventory__detail">{location}</p>
+            <h3 className="inventory__category">Quantity</h3>
+            <p className="inventory__detail">{quantity}</p>
+            <h3 className="inventory__category">Status</h3>
+            <p className="inventory__detail">{isInstock ? 'In Stock' : 'Out of Stock'}</p>
           </div>
-        <div className="inventory__separation">
-          <h3 className="inventory__category">Last Ordered</h3>
-          <p className="inventory__detail">{info.lastOrdered}</p>
-          <h3 className="inventory__category">Location</h3>
-          <p className="inventory__detail">{info.location}</p>
-          <h3 className="inventory__category">Quantity</h3>
-          <p className="inventory__detail">{info.quantity}</p>
-          <h3 className="inventory__category">Status</h3>
-          <p className="inventory__detail">{info.isInstock}</p>
         </div>
-      </div>
+      )
+    }
     )
 
     return(
