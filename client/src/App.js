@@ -18,8 +18,10 @@ export default class App extends React.Component {
       this.setState({
         warehouseInvent: response.data
       })
+      console.log(response.data)
     })
   }
+
   componentDidMount(){
     //getting inventory data from backend
   axios.get('http://localhost:8080/inventory')
@@ -32,16 +34,18 @@ export default class App extends React.Component {
   .catch(error =>{
     console.log(error)
   });
-  console.log(!this.state.warehouseInvent)
+
+  this.warehouseInvent('W0');
   if(!this.state.warehouseInvent) {
     this.warehouseInvent('W0');
   }
+  
 
   }
   render() {
     return (
       <div className="App">
-        <Warehouse {...this.state.warehouseInvent}/>
+        <Warehouse warehouseInvent={this.state.warehouseInvent}/>
         {/* <Inventory/>
         <InventoryData data = {this.state.inventoryData} /> */}
       </div>
