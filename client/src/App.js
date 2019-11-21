@@ -1,29 +1,29 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import './App.scss'
 // import applications modules
 import Warehouse from './components/Warehouse/Warehouse';
 import Inventory from './components/Inventory/Inventory';
 
-import './App.css';
 
+import Modal from './components/Modal'
 // setup for react router
 
-function App() {
-  return (
-    <BrowserRouter>
-    {/* <nav>
-      <Link to="/warehouse/:id"></Link>
-      <Link to="/inventory/:id"></Link>
-    </nav> */}
-    <h1>React Routes are ready to go!</h1>
-    <Switch>
-      <Route path="/" exact component={Warehouse} />
-      <Route path="/warehouse" component={Warehouse} />
-      <Route path="/inventory" component={Inventory} />
-    </Switch>
-  </BrowserRouter>
+export default class App extends React.Component{
 
-  );
+  state = {
+    isModal : true
+  }
+
+  handleModal = () => {
+      this.setState({ isModal: !this.state.isModal });
+  }
+
+  render(){
+    return (
+      <div>
+        <button onClick={this.handleModal}>open modal</button>
+        <Modal isModal={this.state.isModal}/>
+      </div>
+    );
+  }
 }
-
-export default App;
