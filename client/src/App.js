@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.scss';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Header from './header/Header';
 
 function App() {
   return (
-    <div className="App">
-        Hello
-    </div>
+    <Router>
+      <div className="App">
+          <Header />
+      </div>
+    </Router>
   );
 }
 
