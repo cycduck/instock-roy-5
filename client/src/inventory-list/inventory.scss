@@ -8,6 +8,12 @@ html{
     /* This may have to be deleted later */
     margin-left: 16px;
     margin-right: 16px;
+
+    @include tablet {
+
+    margin-left: 24px;
+    margin-right: 24px;
+    }
 }
 
 *, *::before, *::after {
@@ -22,6 +28,17 @@ html{
         margin-bottom: 16px;
     }
 
+    &__container-for-title-search-bar{
+    
+    @include tablet{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    }
+    }
+
     &__search-bar{
         display: flex;
         flex-direction: row;
@@ -31,6 +48,12 @@ html{
         border: 2px solid $text-field-border;
         background-color: $text-field-background-fill;
         margin-bottom: 48px;
+
+        @include tablet {
+            width: 40%;
+            margin-top: 25px;
+            margin-bottom: 0;
+        }
     }
 
     &__search-icon{

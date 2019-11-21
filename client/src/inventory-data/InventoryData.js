@@ -7,9 +7,16 @@ export default class InventoryData extends Component {
 render() {
     return (
     <div className="inventoryData__container">
-        <div className='inventoryData__blue-circle'>
-            <img className='inventoryData__plus-icon' src={plusIcon} alt=""/> 
+        <div className="inventoryData__label-container-tablet">
+            <p className="inventoryData_label-tablet">ITEM</p>
+            <p className="inventoryData_label-tablet">LAST ORDERED</p>
+            <p className="inventoryData_label-tablet">LOCATION</p>
+            <p className="inventoryData_label-tablet">QUANTITY</p>
+            <p className="inventoryData_label-tablet">STATUS</p>
         </div>
+            <div className='inventoryData__blue-circle'>
+                <img className='inventoryData__plus-icon' src={plusIcon} alt=""/> 
+            </div>
         {this.props.data.map(item => {
         return (
             <div key={item.id} className="inventoryData__sub-container">
@@ -22,7 +29,7 @@ render() {
                 <p className="inventoryData__label">ITEM</p>
                 </div>
                 <p className="inventoryData__product-name-label">{item.name}</p>
-                <p>{item.description}</p>
+                <p className="inventoryData__item-descript">{item.description}</p>
             </div>
             <div className="inventoryData__last-ordered-container">
                 <div className="inventoryData__last-ordered-title-container">
@@ -38,7 +45,7 @@ render() {
             </div>
             <div className="inventoryData__quantity-container">
                 <div className="inventoryData__quantity-title-container">
-                <p className="inventoryData__label">LAST ORDERED</p>
+                <p className="inventoryData__label">QUANTITY</p>
                 </div>
                 <p>{item.quantity}</p>
             </div>
@@ -46,7 +53,10 @@ render() {
                 <div className="inventoryData__status-title-container">
                 <p className="inventoryData__label">STATUS</p>
                 </div>
-                <p>{item.isInstock ? "In Stock" : "Out Of Stock"}</p>
+                <p className="inventoryData__status-txt">{item.isInstock ? "In Stock" : "Out Of Stock"}</p>
+                <div className="inventoryData__ellipsisMenu-btn inventoryData__ellipsis-tablet-style">
+                <img src={ellipsisKebabMenu} alt="" />
+                </div>
             </div>
             </div>
         );

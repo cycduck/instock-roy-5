@@ -11,6 +11,14 @@ html{
     /* This may have to be deleted later */
     margin-left: 16px;
     margin-right: 16px;
+
+    @include tablet{
+
+    margin-left: 24px;
+    margin-right: 24px;
+
+    }
+
 }
 
 *, *::before, *::after {
@@ -19,34 +27,93 @@ html{
 
 .inventoryData{
 
+    &__container{
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     &__sub-container{
         margin-bottom: $default-spacing-between-elements;
         display: flex;
         flex-direction: column;
         border-bottom:lightgrey 2px solid;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     &__product-name-label{
     margin-bottom: $default-spacing;
     font-weight: bold;
     }
+
     &__label{
         margin-bottom: $default-spacing;
         color: $text-label-style;
+
+        @include tablet {
+            visibility: hidden;
+        }
     }
 
     &__item-container{
         margin-bottom: $default-spacing-between-elements;
+        @include tablet {
+            width: 30%;
+            margin: 0px;
+        }
+    }
+    &__last-ordered-container{
+        margin-top: $default-spacing-between-elements;
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            margin: 0px;
+            text-align: center;
+        }
     }
     &__location-container{
         margin-top: $default-spacing-between-elements;
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            margin: 0px;
+            text-align: center;
+        }
     }
     &__quantity-container{
         margin-top: $default-spacing-between-elements;
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            margin: 0px;
+            text-align: center;
+        }
     }
+    
     &__status-container{
         margin-top: $default-spacing-between-elements;
         margin-bottom: $default-spacing-between-elements;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 20%;
+            margin: 0px;
+            text-align: center;
+        }
     }
 
     &__ellipsisMenu-btn{
@@ -54,6 +121,10 @@ html{
         align-self: flex-start;
         justify-self: flex-start;
         float: right;
+
+        @include tablet { 
+        visibility: hidden;
+        }
     }
     &__blue-circle{
         position: fixed;
@@ -66,11 +137,83 @@ html{
         border-radius: 50%;
         height: 60px;
         width: 60px;
+
+        @include tablet {
+        margin-left: 600px;
+        margin-top: 400px;
+        }
     }
 
     &__plus-icon{
         text-align: center;
     }
+
+    &__ellipsis-tablet-style{
+        @include mobile{
+            visibility: hidden;
+        }
+        @include tablet {
+        visibility: visible;
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        float: right;
+        }
+    }
+
+    /* Hide Visibility in CSS for containers */
+
+    &__item-title-container{
+        @include tablet{
+        visibility: hidden;
+        }
+    }
+
+    &__last-ordered-title-container{
+        @include tablet{
+            visibility: hidden;
+            }
+    }
+
+    &__location-title-container{
+        @include tablet{
+            visibility: hidden;
+            }
+    }
+
+    &__quantity-title-container{
+        @include tablet{
+            visibility: hidden;
+            }
+    }
+
+    &__status-title-container{
+        @include tablet{
+            visibility: hidden;
+            }
+    }
+
+    &__status-txt{
+        @include tablet{
+            margin-right: 20px;
+        }
+    }
+
+    &__label-container-tablet{
+        visibility: hidden;
+
+        @include tablet{
+            visibility: visible;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: $default-spacing;
+            color: $text-label-style;
+            
+        }
+    }
+    
 }
+
 
 
