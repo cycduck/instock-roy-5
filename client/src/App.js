@@ -8,27 +8,40 @@ import InventoryData from './delete/Inventorylist';
 export default class App extends React.Component {
   state = {
     inventoryData: [],
+    warehouseInvent: []
   }
 
-  // componentDidMount(){
-  //   //getting inventory data from backend
-  // axios.get('http://localhost:8080/inventory')
-  // .then(response => {
-  //   // console.log('Got Inventory Data:', response.data)
-  //   this.setState({
-  //     inventoryData: response.data,
+  warehouseInvent = (warehouseId) => {
+    axios.get(`http://localhost:8080/warehouse/${warehouseId}/inventory`)
+    .then(response => {
+      console.log('receive inventory data by warehouse', response.data)
+      this.setState({
+        warehouseInvent: response.data
+      })
+    })
+  }
+  componentDidMount(){
+    //getting inventory data from backend
+  axios.get('http://localhost:8080/inventory')
+  .then(response => {
+    // console.log('Got Inventory Data:', response.data)
+    this.setState({
+      inventoryData: response.data,
+    })
+  })
+  .catch(error =>{
+    console.log(error)
+  });
+  console.log(!this.state.warehouseInvent)
+  if(!this.state.warehouseInvent) {
+    this.warehouseInvent('W0');
+  }
 
-  //   })
-  // })
-  // .catch(error =>{
-  //   alert(error)
-  // });
-  // }
+  }
   render() {
     return (
       <div className="App">
-        <Warehouse inventory={this.inventory}/>
-
+        <Warehouse {...this.state.warehouseInvent}/>
         {/* <Inventory/>
         <InventoryData data = {this.state.inventoryData} /> */}
       </div>
