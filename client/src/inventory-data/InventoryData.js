@@ -8,11 +8,13 @@ render() {
     return (
     <div className="inventoryData__container">
         <div className="inventoryData__label-container-tablet">
-            <p className="inventoryData_label-tablet">ITEM</p>
-            <p className="inventoryData_label-tablet">LAST ORDERED</p>
-            <p className="inventoryData_label-tablet">LOCATION</p>
-            <p className="inventoryData_label-tablet">QUANTITY</p>
-            <p className="inventoryData_label-tablet">STATUS</p>
+            <p className="inventoryData__label-tablet-item">ITEM</p>
+            <div className='inventoryData__label-container-tablet-plus'> 
+                <p className="inventoryData__label-tablet-last-ordered">LAST ORDERED</p>
+                <p className="inventoryData__label-tablet-location">LOCATION</p>
+                <p className="inventoryData__label-tablet-quantity">QUANTITY</p>
+                <p className="inventoryData__label-tablet-status">STATUS</p>
+            </div>
         </div>
             <div className='inventoryData__blue-circle'>
                 <img className='inventoryData__plus-icon' src={plusIcon} alt=""/> 
@@ -21,7 +23,6 @@ render() {
         return (
             <div key={item.id} className="inventoryData__sub-container">
             <div className="inventoryData__item-container">
-                {/* make this into a link */}
                 <div className="inventoryData__ellipsisMenu-btn">
                 <img src={ellipsisKebabMenu} alt="" />
                 </div>
@@ -35,7 +36,7 @@ render() {
                 <div className="inventoryData__last-ordered-title-container">
                 <p className="inventoryData__label">LAST ORDERED</p>
                 </div>
-                <p>{item.lastOrdered}</p>
+                <p className = "inventoryData__lastOrdered">{item.lastOrdered}</p>
             </div>
             <div className="inventoryData__location-container">
                 <div className="inventoryData__location-title-container">

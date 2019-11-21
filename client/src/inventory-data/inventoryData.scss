@@ -1,41 +1,30 @@
 @import '../scss/fonts.scss';
 @import '../scss/mixin.scss' ;
 @import '../scss/variable.scss';
-
-$default-spacing: 16px;
-$default-spacing-between-elements: 24px;
-
-html{
-    box-sizing: border-box;
-
-    /* This may have to be deleted later */
-    margin-left: 16px;
-    margin-right: 16px;
-
-    @include tablet{
-
-    margin-left: 24px;
-    margin-right: 24px;
-
-    }
-
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
+    
 
 .inventoryData{
 
+
     &__container{
+    margin-left: 16px;
+    margin-right: 16px;
+
         @include tablet {
             display: flex;
             flex-direction: column;
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+
+        @include desk-plus{
+            margin-left: 130px;
+            margin-right: 130px;
         }
     }
 
     &__sub-container{
-        margin-bottom: $default-spacing-between-elements;
+        margin-bottom: 24px;
         display: flex;
         flex-direction: column;
         border-bottom:lightgrey 2px solid;
@@ -45,16 +34,17 @@ html{
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            padding-bottom: 24px;
         }
     }
 
     &__product-name-label{
-    margin-bottom: $default-spacing;
+    margin-bottom: 16px;
     font-weight: bold;
     }
 
     &__label{
-        margin-bottom: $default-spacing;
+        margin-bottom: 16px;
         color: $text-label-style;
 
         @include tablet {
@@ -63,56 +53,53 @@ html{
     }
 
     &__item-container{
-        margin-bottom: $default-spacing-between-elements;
+        margin-bottom: 24px;
         @include tablet {
-            width: 30%;
+            width: 20%;
             margin: 0px;
         }
     }
     &__last-ordered-container{
-        margin-top: $default-spacing-between-elements;
+        margin-top: 24px;
         @include tablet {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 20%;
+            width: 30%;
             margin: 0px;
-            text-align: center;
         }
     }
     &__location-container{
-        margin-top: $default-spacing-between-elements;
+        margin-top: 24px;
         @include tablet {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 20%;
+            width: 15%;
             margin: 0px;
-            text-align: center;
+            
         }
     }
     &__quantity-container{
-        margin-top: $default-spacing-between-elements;
+        margin-top: 24px;
         @include tablet {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 20%;
+            width: 15%;
             margin: 0px;
-            text-align: center;
         }
     }
     
     &__status-container{
-        margin-top: $default-spacing-between-elements;
-        margin-bottom: $default-spacing-between-elements;
+        margin-top: 24px;
+        margin-bottom: 24px;
         @include tablet {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 20%;
             margin: 0px;
-            text-align: center;
         }
     }
 
@@ -142,6 +129,17 @@ html{
         margin-left: 600px;
         margin-top: 400px;
         }
+
+        @include small-laptop(){
+        margin-left: 800px;
+        margin-top: 600px;
+        }
+
+        @include desk-plus{
+            margin-left: 1000px;
+            margin-top: 700px;
+        }
+
     }
 
     &__plus-icon{
@@ -207,13 +205,57 @@ html{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            margin-bottom: $default-spacing;
+            margin-bottom: 16px;
             color: $text-label-style;
+        }
+    }
+
+    &__label-tablet-item{
+        @include tablet{
+            width: 20%;
+        }
+    }
+
+    &__label-tablet-last-ordered{
+        @include tablet{
+            width: 30%
+        }
+    }
+
+    &__label-tablet-location{
+        @include tablet{
+            width: 15%
+        }
+        @include desk-plus {
+            margin-left: -40px;
+        }
+    }
+
+    &__label-tablet-quantity{
+        @include tablet{
+            width: 15%
             
         }
     }
+
+    &__label-tablet-status{
+        @include tablet{
+            width: 20%;
+        }
+    }
+
+    &__label-container-tablet-plus{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 65%;
     
+    }
+
 }
+
+
 
 
 

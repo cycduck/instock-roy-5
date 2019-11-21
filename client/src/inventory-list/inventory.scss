@@ -2,24 +2,6 @@
 @import '../scss/mixin.scss' ;
 @import '../scss/variable.scss';
 
-html{
-    box-sizing: border-box;
-
-    /* This may have to be deleted later */
-    margin-left: 16px;
-    margin-right: 16px;
-
-    @include tablet {
-
-    margin-left: 24px;
-    margin-right: 24px;
-    }
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
 .inventory{
 
     &__page-title{
@@ -29,14 +11,25 @@ html{
     }
 
     &__container-for-title-search-bar{
-    
+        margin-right: 16px;
+        margin-left: 16px;
+
     @include tablet{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 35px;
+    margin-right: 24px;
+    margin-left: 24px;
     }
+
+    @include desk-plus{
+    margin-left: 130px;
+    margin-right: 130px;
+    margin-bottom: 48px;
+    }
+
     }
 
     &__search-bar{
@@ -53,6 +46,9 @@ html{
             width: 40%;
             margin-top: 25px;
             margin-bottom: 0;
+        }
+        @include desk-plus{
+            width: 252px;
         }
     }
 
