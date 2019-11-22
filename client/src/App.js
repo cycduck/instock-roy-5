@@ -17,13 +17,15 @@ export default class App extends Component {
     // console.log('Got Inventory Data:', response.data)
     this.setState({
       inventoryData: response.data,
-
     })
   })
   .catch(error =>{
     alert(error)
   });
   }
+
+
+
   render() {
     return (
       <div className="App">
@@ -33,3 +35,5 @@ export default class App extends Component {
     );
   }
 }
+
+

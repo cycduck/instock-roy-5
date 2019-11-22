@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import "./remove-btn.scss"
 
 export default class Removebtn extends Component {
-    state ={
-        toggle: false
-    }
 
     render() {
         return (

@@ -10,15 +10,36 @@ state = {
     toggle: false
 }
 
-handleToggle =(event) =>{
+//Makes Remove button appear
+handleToggle=(event)=>{
     event.preventDefault();
     this.setState({
         toggle: true
     })
+}
 
+//makes remove button disappear
+handleOutsideClick=(event)=>{
+    if(this.state.toggle){
+        this.setState({
+            toggle: false
+        })
     }
+}
+
+//listening for click once remove button is active
+componentDidMount(){
+    document.addEventListener('click', this.handleOutsideClick)
+}
+
+componentWillUnmount(){
+    document.addEventListener('click', this.handleOutsideClick)
+}
+
+
+
 render() {
-    console.log(this.state)
+    
     return (
     <div className="inventoryData__container">
         <div className="inventoryData__label-container-tablet">
@@ -71,7 +92,9 @@ render() {
                 </div>
                 <p className="inventoryData__status-txt">{item.isInstock ? "In Stock" : "Out Of Stock"}</p>
                 <div className="inventoryData__ellipsisMenu-btn inventoryData__ellipsis-tablet-style">
-                <img src={ellipsisKebabMenu} alt="" />
+                <img src={ellipsisKebabMenu} alt=""
+                onClick={this.handleToggle}/>
+                {this.state.toggle ? <Removebtn /> : null}
                 </div>
             </div>
             </div>
