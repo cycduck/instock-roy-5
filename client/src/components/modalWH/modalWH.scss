@@ -24,11 +24,17 @@
   align-items: center;
   background: white;
   width: 252px;
-  padding: 0 48px;
+  height: 412px;
+  max-height: 100%;
+  padding: 0 16px;
   border-radius: 5px;
+  overflow: scroll;
 
   @include tablet {
     width: 576px;
+    min-height: 412px;
+    height: auto;
+    padding: 0 48px;
   }
 
   &__title {
@@ -56,15 +62,13 @@
 
   &__label-input {
     @include flex-col;
+    width: 100%;
 
-    &:first-child{
-      width: 216px;
+    @include tablet {
+      &:first-child{
+        width: 216px;
+      }
     }
-
-    &:last-child {
-      width: 100%;
-    }
-
   }
   &__label {
     @include labels;
@@ -76,19 +80,49 @@
 
   &__input {
     @include paragraph-web;
-    text-indent: 16px;
+    color: #5e5d5d;
+    padding: 16px;
     height: 48px;
     background-color: $text-field-background-fill;
     border: 1px solid $text-field-border;
     border-radius: 5px;
     margin-bottom: 24px;
   }
-
+  input[type=textarea] {
+    height: 80px;
+  }
   &__left,
   &__right {
-    width: 50%;
+    width: 100%;
+    @include tablet {
+      width: 50%;
+    }
   }
   &__left {
-    margin-right: 48px;
+    @include tablet {
+      margin-right: 48px;
+    }
+  }
+  &__save {
+    @include paragraph-web;
+    text-transform: uppercase;
+    color: white;
+    background: #0065AD;
+    padding: 16px 0;
+    border: 1px solid #0065AD;
+    border-radius: 4px;
+    &:hover {
+      background: #002F5F;
+      border: 1px solid #002F5F;
+    }
+  }
+  &__cancel {
+    @include paragraph-web;
+    text-transform: uppercase;
+    color: #0065AD;
+    background: white;
+    padding: 16px 0;
+    border: none;
+    border-radius: 4px;
   }
 }

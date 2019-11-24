@@ -26,13 +26,14 @@ export default class App extends React.Component{
     })
   }
 
+
   render(){
     return (
       <div>
         <button onClick={this.handleModal}>open modal</button>
         <button onClick={this.handleModalWH}>open warehouse modal</button>
         <Modal isModal={this.state.isModal}/>
-        <ModalWH isModalWH={this.state.isModalWH}/>
+        <ModalWH isModalWH={this.state.isModalWH} handleModalWH={this.handleModalWH}/>
       </div>
     );
   }

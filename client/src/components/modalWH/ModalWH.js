@@ -1,37 +1,21 @@
 import React from "react";
 import Modal from "react-modal";
-import Switch from "react-switch"; // Why is there a switch
 import "./modalWH.scss";
 import { throwStatement } from "@babel/types";
+import Button from "../button/Button";
 
-// Modal.setAppElement('#yourAppElement')
+Modal.setAppElement('#root'); // aria
 
 export default class ModalWH extends React.Component {
   // custom style is not necessary because it will be applied inline, and we will be doing it in SCSS
   // Modal state in app JS, move it to app
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     modalIsOpen: false
-  //   };
-
-  //   this.openModal = this.openModal.bind(this)
-  //   this.closeModal = this.closeModal.bind(this);
-  // }
-
-  // openModal() {
-  //   this.setState({modalIsOpen: true});
-  // }
-  // closeModal() {
-  //   this.setState({modalIsOpen: false});
-  // }
 
   render() {
     return (
       <Modal
-        isOpen={this.props.isModalWH}
-        contentLabel="what does this contentLabel show???"
+        isOpen={this.props.isModalWH} // required prop
+        onRequestClose={this.props.handleModalWH}
+        contentLabel="whatisthis"
         className="modalWH"
         overlayClassName="modalWH__overlay"
       >
@@ -130,10 +114,10 @@ export default class ModalWH extends React.Component {
               />
             </div>
           </div>
-          <div>
-            {/* to do and make it cool cuz i am going to make it into a sepsarete component */}
-            <button>Cancel</button>
-            <button>Cancel</button>
+          <div className="formWH__label-input">
+            {/* classname name onclick */}
+            <Button className="formWH__save" name="save"/>
+            <Button className="formWH__cancel" name="cancel" onClick={this.props.handleModalWH}/>
           </div>
         </form>
       </Modal>
