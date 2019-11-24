@@ -1,29 +1,39 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-// import applications modules
-import Warehouse from './components/Warehouse/Warehouse';
-import Inventory from './components/Inventory/Inventory';
+import axios from 'axios';
+
+// import application component
+import Warehouse from '../src/components/Warehouse/Warehouse';
 
 import './App.css';
 
 // setup for react router
 
-function App() {
-  return (
-    <BrowserRouter>
-    {/* <nav>
-      <Link to="/warehouse/:id"></Link>
-      <Link to="/inventory/:id"></Link>
-    </nav> */}
-    <h1>React Routes are ready to go!</h1>
-    <Switch>
-      <Route path="/" exact component={Warehouse} />
-      <Route path="/warehouse" component={Warehouse} />
-      <Route path="/inventory" component={Inventory} />
-    </Switch>
-  </BrowserRouter>
+export default class App extends React.Component {
+    state = {
+      warehouseInfo: [],
+    }
 
-  );
-}
+    componentDidMount() { 
+      //get the warehouse info from the server 
+      axios.get('http://localhost:8080/warehouse')
+        .then(response => {
+          // console.log('WarehouseInfo:', response.data)
+           this.setState({
+             warehouseInfo: response.data,
 
-export default App;
+           })
+          //  console.log('double checking:', this.state.warehouseInfo)
+        })
+        .catch(error => {
+          alert(error)
+        })
+      }
+    render() {
+    return (
+      <>
+        <div className="App">
+          <Warehouse />
+          {/* <InventoryData data = {this.state.inventoryData} /> */}
+        </div>
+      </>
+    )}}
