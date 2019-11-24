@@ -1,0 +1,94 @@
+@import '../../scss/mixin.scss';
+@import '../../scss/variable.scss';
+
+.modalWH {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color: #000000, $alpha: 0.7);
+  }
+}
+
+.formWH {
+  @include flex-col;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 252px;
+  padding: 0 48px;
+  border-radius: 5px;
+
+  @include tablet {
+    width: 576px;
+  }
+
+  &__title {
+    align-self: flex-start;
+    @include h1-mobile;
+    margin: 32px 0;
+
+    @include tablet {
+      @include h1-web;
+    }
+  }
+
+  &__container-big {
+    width: 100% ;
+  }
+  &__container {
+    @include flex-col;
+    justify-content: space-between;
+    
+    @include tablet {
+      flex-direction: row;
+    }
+
+  }
+
+  &__label-input {
+    @include flex-col;
+
+    &:first-child{
+      width: 216px;
+    }
+
+    &:last-child {
+      width: 100%;
+    }
+
+  }
+  &__label {
+    @include labels;
+    color: $text-label-style;
+    font-weight: 900;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    @include paragraph-web;
+    text-indent: 16px;
+    height: 48px;
+    background-color: $text-field-background-fill;
+    border: 1px solid $text-field-border;
+    border-radius: 5px;
+    margin-bottom: 24px;
+  }
+
+  &__left,
+  &__right {
+    width: 50%;
+  }
+  &__left {
+    margin-right: 48px;
+  }
+}
