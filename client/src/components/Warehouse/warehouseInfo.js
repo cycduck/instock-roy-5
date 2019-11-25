@@ -9,11 +9,19 @@ export default class WarehouseInfo extends Component {
 render() {
     return (
     <div className="warehouseInfo__container">
-        <div className="warehouseInfo__desktop-title-container-">
-            <p className="warehouseInfo__desktop-title-location">WAREHOUSE</p>
-            <p className="warehouseInfo__desktop-title-contact-name">CONTACT</p>
-            <p className="warehouseInfo__desktop-title-contact-info">CONTACT INFORMATION</p>
-            <p className="warehouseInfo__desktop-title-categories">CATEGORIES</p>
+        <div className="warehouseInfo__desktop-title-container">
+            <div className="warehouseInfo__desktop-title-location">
+                <p>WAREHOUSE</p>
+            </div>
+            <div className="warehouseInfo__desktop-title-contact-name">
+                <p>CONTACT</p>
+            </div>
+            <div className="warehouseInfo__desktop-title-contact-info">
+                <p>CONTACT INFORMATION</p>
+            </div>
+            <div className="warehouseInfo__desktop-title-categories">
+                <p>CATEGORIES</p>
+            </div>
         </div>
             <div className='warehouseInfo__new-circle'>
                 <img className='warehouseInfo__icon-add' src={iconAdd} alt=""/> 

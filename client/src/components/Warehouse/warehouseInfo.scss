@@ -2,6 +2,48 @@
 @import '../../scss/mixin.scss' ;
 @import '../../scss/variable.scss';
     
+.warehouse {
+
+    &__title-container {
+        margin-left: 16px;
+        margin-right: 16px;
+
+            @include tablet {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 36px;
+                margin-right: 24px;
+                margin-left: 24px;
+            }
+            @include desk-plus {
+                margin-left: 180px;
+                margin-right: 180px;
+                margin-bottom: 48px;
+            }
+    }
+    &__search-bar {
+        display: flex;
+        flex-direction: row;
+        height: 53px;
+        width: 85%;
+        border-radius: 8px;
+        border: 2px solid #e1e1e1;
+        background-color: #fafafa;
+        margin-bottom: 48px;
+
+        @include tablet {
+            width: 40%;
+            margin-top: 25px;
+            margin-bottom: 0px;
+        }
+
+        @include desk-plus {
+            width: 252px;
+        }
+    }
+}
 
 .warehouseInfo { 
 
@@ -18,8 +60,8 @@
         }
 
         @include desk-plus {
-            margin-left: 130px;
-            margin-right: 130px;
+            margin-left: 180px;
+            margin-right: 180px;
         }
     }
 
@@ -109,7 +151,7 @@
         @include tablet {
             display: flex;
             flex-direction: column;
-            width: 230px;
+            width: 215px;
             margin: 0px;
         }
     }
@@ -237,71 +279,11 @@
             justify-content: space-between;
             margin-bottom: 16px;
             color: $text-label-style;
-
+            padding-right: 200px;
         @include mobile-tablet {
             display: none;
         }
     }
 
-    &__desktop-title-location {
-        @include mobile{
-            display: none;
-        }
-        @include desk-plus {
-            display: contents;
-            width: 230px;
-        }
-    }
 
-    &__desktop-title-contact-name {
-        @include mobile{
-            display: none;
-            }
-        @include desk-plus {
-            display: contents;
-            }
-        }
-
-    &__desktop-title-contact-info {
-        @include mobile{
-            display: none;
-            }
-        @include desk-plus {
-            display: contents;
-        }    
-    }
-
-    &__desktop-title-categories { 
-        @include mobile { 
-            display: none;
-            }
-        @include desk-plus {
-            display: contents;
-        }
-    }
-
-    &__desktop-title-location {
-        @include desk-plus {
-            width: 230px;
-        }
-    }
-
-    &__desktop-title-contact-name {
-        @include desk-plus {
-            width: 230px;
-        }
-    }
-
-    &__desktop-title-contact-info {
-        @include desk-plus {
-            width: 240px;
-        }
-    }
-
-    &__desktop-title-categories {
-        @include desk-plus {
-            width: 230px;
-            
-        }
-    }
 }
