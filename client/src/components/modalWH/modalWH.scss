@@ -9,11 +9,12 @@
   height: 100%;
   
   &__overlay {
-    position: fixed;
+    // position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: 100%;
+    overflow: scroll;
     background: rgba($color: #000000, $alpha: 0.7);
   }
 }
@@ -24,11 +25,9 @@
   align-items: center;
   background: white;
   width: 252px;
-  height: 412px;
-  max-height: 100%;
   padding: 0 16px;
   border-radius: 5px;
-  overflow: scroll;
+  
 
   @include tablet {
     width: 576px;
