@@ -68,7 +68,14 @@
         background-color: white;
         @include tablet(){
             top: 90px;
-            right: 0px
+            right: 0px;
         }
     }
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    width: 120%;
 }
