@@ -22,16 +22,24 @@ export default class ModalWH extends React.Component {
   //   this.onChange =this.onChange.bind(this)
   //   // this method requires binding
   // }
-
+  
   // onChange(e) {
-  //   console.log(e.target.name, e.target.value)
-  //   this.setState({[e.target.name]:e.target.value})
-  // }
-
-  // no need to setup initial state, this will do
-  // https://medium.com/better-programming/handling-multiple-form-inputs-in-react-c5eb83755d15
-  // https://medium.com/javascript-inside/better-understanding-forms-in-react-a85d889773ce
-  onChange = e => {
+    //   console.log(e.target.name, e.target.value)
+    //   this.setState({[e.target.name]:e.target.value})
+    // }
+      state={
+        warehouse:"",
+        address:"",
+        contact:"",
+        phone:"",
+        position:"",
+        email:"",
+        category:""
+      }
+    
+    // https://medium.com/better-programming/handling-multiple-form-inputs-in-react-c5eb83755d15
+    // https://medium.com/javascript-inside/better-understanding-forms-in-react-a85d889773ce
+    onChange = e => {
     console.log(e.target.name, e.target.value);
     this.setState({ [e.target.name]: e.target.value });
     // on change seems to work cuz it's targetting one thing, not target.[name].value
@@ -39,21 +47,11 @@ export default class ModalWH extends React.Component {
 
   postWarehouse = e => {
     e.preventDefault();
-    // console.log(e.target.warehouse.type)
-    // console.log(e.target.warehouse.value)
-    // console.log(e.target.address.value)
-    // console.log(e.target.contact.value)
-    // console.log(e.target.phone.value)
-    // console.log(e.target.location.value)
-    // console.log(e.target.position.value)
-    // console.log(e.target.email.value)
-    // console.log(e.target.category.value)
     if (this.state) {
-      // loop through the object and find a one without length is what it is doing atm
-      // but i want it to go though the entire thing and find one that's empty
-      let x = Object.keys(this.state).filter(info => !this.state[info])
-      console.log(x)
-      if ( x.length > 7) {
+      
+      let arrayOfEmptyFields = Object.keys(this.state).filter(info => !this.state[info] ) 
+      console.log(arrayOfEmptyFields)
+      if ( arrayOfEmptyFields.length = 0) { // only submit when there are no empty fields
         console.log('axios working')
           axios.post("http://localhost:8080/warehouse", {
             name: e.target.warehouse.value,
@@ -75,15 +73,10 @@ export default class ModalWH extends React.Component {
             console.log(err);
           });
         } else {
-          console.log('fuck')
+          console.log(arrayOfEmptyFields)
+          arrayOfEmptyFields.forEach(info => console.log(info))
         }
       }
-      
-  
-        // else {
-        //   
-    // if any of the values aren't empty, then submit
-    // if it is show an error
   };
 
 
