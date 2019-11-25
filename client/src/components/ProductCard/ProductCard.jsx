@@ -4,7 +4,6 @@ import './ProductCard.scss';
 
 import kebab from '../../assets/Icons/SVG/Icon-kebab-default.svg';
 
-import axios from 'axios';
 
 // import {Link} from 'react-router-dom';
 
@@ -22,7 +21,7 @@ export default class ProductCard extends React.Component{
         if(!this.props.product){return null}
         return(
             <React.Fragment>
-            {/* <Link to={this.props.inventory.id}>  */}
+            {/* <Link to={this.props.product.id}>  */}
                 <div className="product" id={this.props.product.id}>
                         <img onClick={this.handleKebab} className="product__kebab" src={kebab} alt="kebab"/>
                         { this.state.isRemove ? <button className="product__remove-btn" onClick={()=>{this.props.handleDelete(this.props.product.id)}}>Remove</button> : null }         
