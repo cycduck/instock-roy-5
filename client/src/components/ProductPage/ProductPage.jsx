@@ -1,10 +1,16 @@
 import React from 'react';
 import './ProductPage.scss';
+import {Link} from 'react-router-dom';
 
 import backArrow from '../../assets/Icons/SVG/Icon-back-arrow.svg';
 
 export default class ProductPage extends React.Component{
+    
     render(){
+        // console.log(this.props.match.params.inventoryId)
+        console.log(this.props)
+        // console.log(this.props.match.params.inventoryId)
+        // console.log(this.props.product)
         if(!this.props.product){
             console.error('Failed to fetch inventory item');
             return null
@@ -13,7 +19,9 @@ export default class ProductPage extends React.Component{
             <section className="product-page">
                 <div className="product-page__top">
                     <div className="product-page__top-name">
+                        <Link to='/'>
                         <img src={backArrow} alt="back arrow icon" className="product-page__back-arrow"/>
+                        </Link>
                         <h1 className="product-page__name">{this.props.product.name}</h1>
                     </div>
                     <div className="product-page__stock">{!this.props.product.isInstock ? 'Out of Stock' : 'In Stock'}</div>

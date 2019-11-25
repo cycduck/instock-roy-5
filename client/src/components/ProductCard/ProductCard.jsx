@@ -4,9 +4,8 @@ import './ProductCard.scss';
 
 import kebab from '../../assets/Icons/SVG/Icon-kebab-default.svg';
 
-import axios from 'axios';
 
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default class ProductCard extends React.Component{
     state = {
@@ -14,28 +13,18 @@ export default class ProductCard extends React.Component{
     }
 
     handleKebab = () => {
-        console.log('this got handled')
         this.setState({
             isRemove : !this.state.isRemove
         })
     }
-    handleWindow = () => {
-            this.handleKebab();
-            document.removeEventListener('click', this.handleWindow);
-    }
-    componentDidUpdate(){
-        if(this.state.isRemove === true){
-            document.addEventListener('click', this.handleWindow)
-        }
-    }
     render(){
         if(!this.props.product){return null}
         return(
-            <React.Fragment>
-            {/* <Link to={this.props.inventory.id}>  */}
+            <>
                 <div className="product" id={this.props.product.id}>
                         <img onClick={this.handleKebab} className="product__kebab" src={kebab} alt="kebab"/>
                         { this.state.isRemove ? <button className="product__remove-btn" onClick={()=>{this.props.handleDelete(this.props.product.id)}}>Remove</button> : null }         
+                <Link to={`/inventory/${this.props.product.id}`} className='link'>    
                     <div className="product__item">
                         <p className="product__label">Item</p>
                         <p className="product__name">{this.props.product.name}</p>
@@ -56,11 +45,11 @@ export default class ProductCard extends React.Component{
                     <div className="product__item">
                         <p className="product__label">Status</p>
                         <p className="product__info">{!this.props.product.isInstock ? 'Out of Stock' : 'In Stock'}</p>
-                    </div>
+                    </div> 
+                    </Link>
                 </div>
                 <hr className="product__ruler"></hr>
-            {/* </Link>  */}
-            </React.Fragment>
+            </>
         );
     }
 }
