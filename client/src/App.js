@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+
+// import application component
+import Warehouse from '../src/components/Warehouse/Warehouse';
+import WarehouseInfo from '../src/components/Warehouse/warehouseInfo';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// setup for react router
 
-export default App;
+export default class App extends React.Component {
+    state = {
+      warehouseInfo: [],
+    }
+
+    componentDidMount() { 
+      //get the warehouse info from the server 
+      axios.get('http://localhost:8080/warehouse')
+        .then(response => {
+           this.setState({
+             warehouseInfo: response.data,
+
+           })
+           console.log('double checking:', this.state.warehouseInfo)
+        })
+        .catch(error => {
+          alert(error)
+        })
+      }
+    render() {
+    return (
+      <>
+        <div className="App">
+          <Warehouse />
+          <WarehouseInfo data = {this.state.warehouseInfo} />
+        </div>
+      </>
+    )}}

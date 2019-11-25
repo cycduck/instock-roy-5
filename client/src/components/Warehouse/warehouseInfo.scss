@@ -1,0 +1,289 @@
+@import '../../scss/fonts.scss';
+@import '../../scss/mixin.scss' ;
+@import '../../scss/variable.scss';
+    
+.warehouse {
+
+    &__title-container {
+        margin-left: 16px;
+        margin-right: 16px;
+
+            @include tablet {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 36px;
+                margin-right: 24px;
+                margin-left: 24px;
+            }
+            @include desk-plus {
+                margin-left: 180px;
+                margin-right: 180px;
+                margin-bottom: 48px;
+            }
+    }
+    &__search-bar {
+        display: flex;
+        flex-direction: row;
+        height: 53px;
+        width: 85%;
+        border-radius: 8px;
+        border: 2px solid #e1e1e1;
+        background-color: #fafafa;
+        margin-bottom: 48px;
+
+        @include tablet {
+            width: 40%;
+            margin-top: 25px;
+            margin-bottom: 0px;
+        }
+
+        @include desk-plus {
+            width: 252px;
+        }
+    }
+}
+
+.warehouseInfo { 
+
+
+    &__container { 
+    margin-left: 16px;
+    margin-right: 16px;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+
+        @include desk-plus {
+            margin-left: 180px;
+            margin-right: 180px;
+        }
+    }
+
+    &__sub-container {
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        border-bottom:lightgrey 2px solid;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 24px;
+        }
+    }
+// location container 
+    &__loc-container {
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        border-bottom:lightgrey 2px solid;
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 24px;
+    }
+    @include desk-plus {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 24px;
+    }
+
+}
+    &__loc-tablet-style {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+    }
+        @include desk-plus {
+            padding-top: 3.5rem;
+    }
+
+}
+
+// location info
+    &__loc-addr-container {
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+    @include tablet {
+        flex-direction: row;
+        width: 100%;
+        margin: 0px;
+    }
+    @include desk-plus {
+        flex-direction: column;
+        width: 230px;
+    }
+    }
+
+    &__loc-label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    @include desk-plus {
+        margin-top: 0px;
+    }
+    }
+
+    &__loc-address-details {
+        margin-bottom: 5px;
+    @include desk-plus {
+        margin-top: 0px;
+    }   
+    
+
+    &__loc-city-details {
+        margin-bottom: 5px;
+        margin-top: 0px; 
+
+    }
+    }
+// location contact 
+    &__loc-contact-container {
+        margin-bottom: 24px;
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            width: 215px;
+            margin: 0px;
+        }
+    }
+    &__loc-contact {
+        margin-bottom: 24px;
+        @include tablet {
+            width: 100%;
+            margin: 0px;
+        }
+    }
+    &__loc-contact-title {
+        margin-bottom: 24px;
+        font-style: italic;
+        @include tablet {
+            width: 100%;
+            margin: 0px;
+        }
+    }
+
+    // location contact information
+    &__loc-contact-info-container {
+        margin-top: 24px;
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            width: 240px;
+            margin: 0px;
+        }
+    }
+    &__loc-contact-info {
+        margin-top: 24px;
+        @include tablet {
+            width: 100%;
+            margin: 0px;
+        }
+    }
+    &__loc-contact-info-email {
+        margin-top: 24px;
+        @include tablet {
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0px;
+        }
+    }
+
+//location categories 
+    &__loc-category-container {
+        margin-top: 0px;
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+            width: 230px;
+            margin: 0px;
+            
+        }
+    }
+    &__loc-category-info {
+        margin-top: 0px;
+        @include tablet {
+            display: flex;
+        }
+    }
+    &__details-arrow-btn{
+        display: flex;
+        align-self: flex-start;
+        justify-self: flex-start;
+        float: right;
+
+        @include tablet { 
+        visibility: hidden;
+        }
+    }
+    &__icon-add {
+        position: fixed;
+        margin-left: 200px;
+        margin-top: 330px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $primary-cta-text-link;
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+
+        @include tablet {
+        margin-left: 600px;
+        margin-top: 400px;
+        }
+
+        @include desk-plus {
+            margin-left: 800px;
+            margin-top: 600px;
+        }
+
+        @include desk-plus {
+            margin-left: 1000px;
+            margin-top: 700px;
+        }
+
+    }
+
+    &__plus-icon {
+        text-align: center;
+    }
+
+    &__details-arrow-style {
+        @include mobile{
+            visibility: hidden;
+        }
+        @include tablet {
+        visibility: visible;
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        float: right;
+        }
+    }
+    
+    // title stylings
+    // Hide titles on mobile and tablets in CSS for containers
+
+    &__desktop-title-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            color: $text-label-style;
+            padding-right: 200px;
+        @include mobile-tablet {
+            display: none;
+        }
+    }
+
+
+}

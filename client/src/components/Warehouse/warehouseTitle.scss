@@ -1,0 +1,66 @@
+@import '../../scss/fonts.scss';
+@import '../../scss/mixin.scss' ;
+@import '../../scss/variable.scss';
+
+.warehouse{
+
+    &__page-title{
+        @include h1-web;
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    &__title-container{
+        margin-right: 16px;
+        margin-left: 16px;
+
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 35px;
+        margin-right: 24px;
+        margin-left: 24px;
+        }
+
+    @include desk-plus{
+        margin-left: 130px;
+        margin-right: 130px;
+        margin-bottom: 48px;
+        }
+
+    }
+
+    &__search-bar{
+        display: flex;
+        flex-direction: row;
+        height: 53px;
+        width: 85%;
+        border-radius: 8px;
+        border: 2px solid $text-field-border;
+        background-color: $text-field-background-fill;
+        margin-bottom: 48px;
+
+        @include tablet {
+            width: 40%;
+            margin-top: 25px;
+            margin-bottom: 0;
+        }
+        @include desk-plus{
+            width: 252px;
+        }
+    }
+
+    &__search-icon{
+        margin-right: 5px;
+        margin-left: 10px;
+    }
+
+    &__search-field{
+        display: flex;
+        justify-self: center;
+        align-self: center;
+        color: black;
+    }
+}
