@@ -1,0 +1,120 @@
+@import '../../scss/mixin.scss';
+@import '../../scss/variable.scss';
+
+.product-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px 16px;
+    @include tablet(){
+        margin: 0 24px;
+    }
+    &__top{
+        display: flex;
+        flex-direction: column;
+        @include tablet(){
+            flex-direction: row;
+        }
+    }
+    &__top-name{
+        display: flex;
+    }
+    &__back-arrow{
+        margin-right: 16px;
+    }
+    &__name{
+        @include h1-mobile();
+        @include tablet(){
+            @include h1-web();
+        }
+    }
+    &__stock{
+        width: 88px;
+        height: 24px;
+        margin-top: 16px;
+        background-color: green;
+        color: #ffffff;
+        font-size: 11px;
+        text-align: center;
+        padding-top: 6px;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        @include tablet(){
+            margin-top: 14px;
+            margin-left: 24px;
+            margin-bottom: 0px;
+        }
+    }
+    &__ruler{
+        display: none;
+        @include tablet(){
+            display: inline;
+            width: 100%;
+            height: 1px;
+            opacity: 0.5;
+            background-color: #323232;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    }
+    &__content{
+        @include desk-plus(){
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__left{
+        @include desk-plus(){
+            width: 50%;
+        }
+    }
+    &__right{
+        @include tablet(){
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    &__item{
+        @include tablet(){
+            width: 50%;
+        }
+    }
+    &__item--full{
+        @include tablet(){
+            width: 100%;
+        }
+    }
+    &__item--quantity{
+        @include tablet(){
+            width: 100%
+        }
+    }
+    &__label{
+        @include paragraph-mobile();
+        margin-bottom: 16px;
+        opacity: 0.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        @include tablet(){
+            margin-bottom: 24px;
+        }
+    }
+    &__info{
+        @include paragraph-mobile();
+        margin-bottom: 24px;
+    }
+    &__edit-btn{
+        @include paragraph-mobile();
+        align-self: flex-end;
+        width: 288px;
+        height: 48px;
+        background-color: $primary-cta-hover;
+        border-radius: 5px;
+        color: #ffffff;
+        @include tablet(){
+            @include paragraph-web();
+            width: 160px;
+            height: 48px;
+        }
+    }
+}

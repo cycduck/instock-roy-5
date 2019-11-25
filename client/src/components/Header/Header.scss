@@ -1,0 +1,66 @@
+@import '../../scss/mixin.scss';
+@import '../../scss/variable.scss';
+
+.header {
+    width: 100%;
+    background: $nav-background;
+    margin-bottom: 32px;
+    @include tablet(){
+      margin-bottom: 48px;
+    }
+    &__wrapper {
+      margin: 0 auto;
+      color: #ffffff;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      height: 80px;
+      @include tablet() {
+        flex-wrap: nowrap;
+        max-width: 768px;
+      }
+      @include desk-plus() {
+        max-width: 1080px;
+      }
+    }
+    &__logo {
+      margin: 0 auto;
+      padding: 8px 0px 16px 0px;
+      @include tablet() {
+        margin: 0px 56px 0px 24px;
+      }
+      @include desk-plus() {
+        margin: 0px 56px 0px 0px;
+      }
+    }
+    .nav {
+      display: flex;
+      width: 100%;
+      height: 40%;
+      text-align: center;
+      @include tablet() {
+        height: 100%;
+      }
+  
+      .nav__item {
+        @include h2-mobile();
+        width: 50%; 
+        color: #ffffff;
+        @include tablet() {
+          @include flex-justify-content-center();
+          width: 80px;
+          flex-wrap: nowrap;
+          margin-right: 56px;
+          align-items: center;
+        }
+        @include desk-plus() {
+        }
+      }
+      .nav__item-active {
+        border-bottom: 5px solid #ffffff;
+        @include tablet() {
+          margin-top: 5px;
+        }
+      }
+    }
+  }

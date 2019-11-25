@@ -1,28 +1,42 @@
 import React from 'react';
-import './App.scss'
-// import applications modules
-import Warehouse from './components/Warehouse/Warehouse';
+import axios from 'axios';
+import './App.scss';
+import Header from './components/Header/Header';
+import ProductPage from './components/ProductPage/ProductPage';
 import Inventory from './components/Inventory/Inventory';
+import Location from './components/Location/Location';
+import WarehouseInfo from './components/WarehouseInfo/WarehouseInfo';
 
 
-import Modal from './components/Modal'
-// setup for react router
-
-export default class App extends React.Component{
-
+export default class App extends React.Component {
   state = {
-    isModal : true
+    isOpen : true,
+    componentIsMounted : false
   }
 
-  handleModal = () => {
-      this.setState({ isModal: !this.state.isModal });
+  async getLocation() {
+    try{
+        let locationData = await axios.get(`http://localhost:8080/warehouse`);
+          this.setState({location : locationData.data})
+    }
+    catch(error) {
+      alert(error);
+    }
   }
 
-  render(){
+  componentDidMount(){
+    this.getLocation();
+  }
+ 
+  
+  render() {
     return (
-      <div>
-        <button onClick={this.handleModal}>open modal</button>
-        <Modal isModal={this.state.isModal}/>
+      <div className="App">
+          <Header/>
+          {/* <Inventory inventory={this.state.inventory}/> */}
+          {/* <Location location={this.state.location}/> */}
+          {/* <ProductPage product={this.object}/> */}
+          <WarehouseInfo/>
       </div>
     );
   }

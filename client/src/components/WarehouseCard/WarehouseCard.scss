@@ -1,0 +1,45 @@
+@import '../../scss/mixin.scss';
+@import '../../scss/variable.scss';
+
+.warehouse{
+    @include paragraph-mobile();
+    position: relative;
+    @include tablet(){
+        @include paragraph-web();
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__item{
+        margin-bottom: 24px;
+        @include tablet(){
+            width: 25%;
+        }
+    }
+    &__item--full{
+        @include tablet(){
+            width: 100%;
+        }
+        @include desk-plus(){
+            width: 25%;
+        }
+    }
+    &__info--head{
+        font-weight: 500;
+    }
+    &__ruler{
+        width: 100%;
+        height: 1px;
+        opacity: 0.5;
+        background-color: #323232;
+        margin-bottom: 24px;
+    }  
+    &__next-arrow{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 11px;
+        height: 18px;
+    }
+}

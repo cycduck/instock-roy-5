@@ -1,0 +1,74 @@
+@import '../../scss/mixin.scss';
+@import '../../scss/variable.scss';
+
+.product{
+    position: relative;
+    @include paragraph-mobile();
+    @include tablet(){
+        @include paragraph-web();
+        display: flex;
+    }
+    &__item{
+        @include tablet(){
+            width: 25%;
+            margin-right: 24px;
+        }
+    }
+    &__label{
+        text-transform: uppercase;
+        font-weight: 500;
+        opacity: 0.2;
+        margin-bottom: 16px;
+        @include tablet(){
+            display: none;
+        }
+    }
+    &__name{
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+    &__info{
+        margin-bottom: 24px;
+        @include tablet(){
+            margin-top: 38px;
+        }
+    }
+    &__info--name{
+        margin-top: 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__ruler{
+        width: 100%;
+        height: 1px;
+        opacity: 0.5;
+        margin-bottom: 24px;
+        background-color: #323232;
+    }
+    &__kebab{
+        z-index: 1;
+        position: absolute;
+        right: 16px;
+        @include tablet(){
+            top: 47px;
+        }
+    }
+    &__remove-btn{
+        z-index: 50;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        width:161px;
+        height: 44px;
+        padding-right: 90px;
+        border: 1px solid rgba($color: #323232, $alpha: 0.1);
+        background-color: white;
+        @include tablet(){
+            top: 90px;
+            right: 0px
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@import '../../scss/mixin.scss';
+@import '../../scss/variable.scss';
+
+.add-modal-btn{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    bottom: 130px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: $primary-cta-hover;
+    border-radius: 50%;
+    @include tablet(){
+        width: 80px;
+        height: 80px;
+        bottom: 90px;
+        right: 80px;
+    }
+    @include desk-plus(){
+        bottom: 130px;
+        right: 250px;
+    }
+   &__icon{
+       width: 20px;
+       @include tablet(){
+        width: 24px;
+    }
+   }
+}
+
