@@ -3,7 +3,6 @@ import './Inventory.scss';
 
 import ProductCard from '../ProductCard/ProductCard';
 import AddModalBtn from '../AddModalBtn/AddModalBtn';
-// import InventoryModal from '../InventoryModal/InventoryModal';
 
 export default class Inventory extends React.Component{
     state={
