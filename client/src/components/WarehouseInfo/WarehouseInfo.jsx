@@ -13,12 +13,15 @@ export default class WarehouseInfo extends React.Component{
         console.error('Failed to fetch warehouse and inventory');
         return null;
     }
+    
     render(){
+        console.log(this.props)
         if(!this.props.warehouse){
             this.errorHandle();
             return null;
         }
-        const productList = (!this.props.inventory) ? this.errorHandle() : this.productList(this.props.inventory)
+        console.log(this.props.inventory)
+        const productList = (this.props.inventory === undefined) ? this.errorHandle() : this.productList(this.props.inventory)
         return(
             <section className="warehouse-info"> 
                 <div className="warehouse-info__top">

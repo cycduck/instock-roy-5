@@ -4,7 +4,12 @@ import './ProductPage.scss';
 import backArrow from '../../assets/Icons/SVG/Icon-back-arrow.svg';
 
 export default class ProductPage extends React.Component{
+    
     render(){
+        // console.log(this.props.match.params.inventoryId)
+        console.log(this.props)
+        // console.log(this.props.match.params.inventoryId)
+        // console.log(this.props.product)
         if(!this.props.product){
             console.error('Failed to fetch inventory item');
             return null
