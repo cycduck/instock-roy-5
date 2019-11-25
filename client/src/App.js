@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // import application component
 import Warehouse from '../src/components/Warehouse/Warehouse';
+import WarehouseInfo from '../src/components/Warehouse/warehouseInfo';
 
 import './App.css';
 
@@ -17,12 +18,11 @@ export default class App extends React.Component {
       //get the warehouse info from the server 
       axios.get('http://localhost:8080/warehouse')
         .then(response => {
-          // console.log('WarehouseInfo:', response.data)
            this.setState({
              warehouseInfo: response.data,
 
            })
-          //  console.log('double checking:', this.state.warehouseInfo)
+           console.log('double checking:', this.state.warehouseInfo)
         })
         .catch(error => {
           alert(error)
@@ -33,7 +33,7 @@ export default class App extends React.Component {
       <>
         <div className="App">
           <Warehouse />
-          {/* <InventoryData data = {this.state.inventoryData} /> */}
+          <WarehouseInfo data = {this.state.warehouseInfo} />
         </div>
       </>
     )}}
