@@ -10,23 +10,6 @@ Modal.setAppElement("#root"); // aria
 
 export default class ModalWH extends React.Component {
   // custom style is not necessary because it will be applied inline, and we will be doing it in SCSS
-  // Modal state in app JS, move it to app
-
-  // constructor () {
-  //   super();
-
-  //   this.state={
-  //     warehouse:"",
-  //     address:""
-  //   }
-  //   this.onChange =this.onChange.bind(this)
-  //   // this method requires binding
-  // }
-  
-  // onChange(e) {
-    //   console.log(e.target.name, e.target.value)
-    //   this.setState({[e.target.name]:e.target.value})
-    // }
       state={
         warehouse:"",
         address:"",
@@ -57,7 +40,7 @@ export default class ModalWH extends React.Component {
         
         console.log('axios working')
         if (validate === true) {
-
+          console.log('e.target.warehouse.value exist? ', e.target.warehouse.value)
           axios.post("http://localhost:8080/warehouse", {
             name: e.target.warehouse.value,
             address: {
@@ -79,9 +62,7 @@ export default class ModalWH extends React.Component {
           });
         }
       } else {
-        console.log(arrayOfEmptyFields)
-        arrayOfEmptyFields.forEach(info => console.log(info))
-        // need to figure out how to make this work...
+        console.log(`Fields ${arrayOfEmptyFields} are still empty`)
       }
     }
 };

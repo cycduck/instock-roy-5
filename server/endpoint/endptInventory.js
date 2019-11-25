@@ -10,6 +10,7 @@ const inventory = (request, response) => {
 
 // POST request for new inventory item PATH:/inventory
 const postToInventory = (request, response) =>{
+  console.log(request.body.name)
   const newInventoryItem = {
       id: nanoid(5),
       name: request.body.name,

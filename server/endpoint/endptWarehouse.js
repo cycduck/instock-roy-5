@@ -22,11 +22,11 @@ const warehouseInvent = (request, response) => {
 
 const postWarehouse = (request, response) => {
   console.log('receiving object and posting new warehouse');
-  const data = response.body;
+  const data = request.body;
+  console.log(data)
+  console.log(data.name)
   //checks if any of the data sent is undifined or empty
-  data.forEach(item => {if(item === undefined || item === " "){
-    response.status(404).send(`${item} field is empty`)
-  }});
+
   const newWarehouse = {
     "id": nanoId(),
     "name": data.name,
@@ -45,7 +45,11 @@ const postWarehouse = (request, response) => {
     },
     "inventoryCategories": data.categories
   }
-  location.unshift(newWarehouse);
+  if(!data.name || !data.address || !data.contact.name || !data.contact.position || !data.contact.phone || !data.contact.email) {
+    response.status(404).send('Item could not be added')
+  } else {
+    location.unshift(newWarehouse);
+  }
 }
 module.exports = {
   // K: put function names here with commas
