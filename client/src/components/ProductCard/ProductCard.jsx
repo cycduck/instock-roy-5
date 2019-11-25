@@ -4,10 +4,15 @@ import './ProductCard.scss';
 
 import kebab from '../../assets/Icons/SVG/Icon-kebab-default.svg';
 
+import axios from 'axios';
+
+// import {Link} from 'react-router-dom';
+
 export default class ProductCard extends React.Component{
     state = {
         isRemove : false
     }
+
     handleKebab = () => {
         console.log('this got handled')
         this.setState({
@@ -27,9 +32,10 @@ export default class ProductCard extends React.Component{
         if(!this.props.product){return null}
         return(
             <React.Fragment>
-                <div className="product">
+            {/* <Link to={this.props.inventory.id}>  */}
+                <div className="product" id={this.props.product.id}>
                         <img onClick={this.handleKebab} className="product__kebab" src={kebab} alt="kebab"/>
-                        { this.state.isRemove ? <button className="product__remove-btn">Remove</button> : null }         
+                        { this.state.isRemove ? <button className="product__remove-btn" onClick={()=>{this.props.handleDelete(this.props.product.id)}}>Remove</button> : null }         
                     <div className="product__item">
                         <p className="product__label">Item</p>
                         <p className="product__name">{this.props.product.name}</p>
@@ -53,6 +59,7 @@ export default class ProductCard extends React.Component{
                     </div>
                 </div>
                 <hr className="product__ruler"></hr>
+            {/* </Link>  */}
             </React.Fragment>
         );
     }

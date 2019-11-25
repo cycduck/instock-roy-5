@@ -11,7 +11,7 @@ export default class Inventory extends React.Component{
     
     productList = (inventory) => {
         return inventory.map( item => {
-            return <ProductCard key={item.id} product={item}/>
+            return <ProductCard key={item.id} product={item} handleDelete={this.props.handleDelete}/>
         });
     }
 
