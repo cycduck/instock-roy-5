@@ -1,0 +1,106 @@
+.header-container {
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  background-color: black
+}
+// nav styling
+
+.nav-title-container {
+  height: 40px;
+  display: block;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    & {
+    text-align: left;
+    margin-left: 24px;
+    margin-top: 1rem;
+    width: 200px;
+    }
+  }
+}
+
+.nav-title {
+  // text-align: center;
+  width: 100%;
+  justify-content: center;
+  
+  &__link {
+    margin-top: 16px;
+    justify-content: center;
+  }
+  &__links {
+    color: white;
+    text-decoration: none;
+  }
+  &__image {
+    margin-top: 16px;
+    justify-content: center;
+  }
+  &__tabs {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  @media screen and (min-width: 768px) {
+    &__tabs {
+    margin-top: 1rem;
+    width: 320px;
+    }
+  }
+  &__sides {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+  }
+  @media screen and (min-width: 768px) {
+    &__sides {
+      position: relative;
+      bottom: 60px;
+      margin: 45px;
+      justify-content: space-evenly;
+      width: 550px;
+    }
+  }
+  &__active {
+    border-bottom: 5px solid white;
+  }
+  &__item1 {
+    color: white;
+    list-style: none;
+    display: block;
+    width: 160px;
+    margin-left: 0px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__item1:active {
+    border-bottom: 5px solid white;
+  }
+  @media screen and (min-width: 768px) {
+    &__item1 {
+    width: 80px;
+    }
+  }
+  &__item2 {
+    color: white;
+    list-style: none;
+    display: block;
+    width: 160px;
+    margin-left: 0px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__item2:active {
+    border-bottom: 5px solid white;
+  }
+  @media screen and (min-width: 768px) {
+    &__item2 {
+    width: 80px;
+    }
+  }
+}
+
