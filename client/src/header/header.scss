@@ -63,19 +63,25 @@
       width: 550px;
     }
   }
+  &__active {
+    border-bottom: 5px solid white;
+  }
   &__item1 {
     color: white;
     list-style: none;
-    border-bottom: 1rem solid white;
     display: block;
     width: 160px;
     margin-left: 0px;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__item1:active {
+    border-bottom: 5px solid white;
   }
   @media screen and (min-width: 768px) {
     &__item1 {
     width: 80px;
-    border-bottom: 1px solid white;
     }
   }
   &__item2 {
@@ -85,6 +91,11 @@
     width: 160px;
     margin-left: 0px;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__item2:active {
+    border-bottom: 5px solid white;
   }
   @media screen and (min-width: 768px) {
     &__item2 {
