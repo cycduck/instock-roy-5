@@ -68,10 +68,8 @@ export default class App extends React.Component {
     this.getLocation();
     this.getInventory();
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> c2334fd93b371d7bd635fcfb1520f7a1dc38e2bf
+
+
   handleDelete = (id) => {
     axios.delete(`http://localhost:8080/inventory/${id}`).catch(error=>console.log(error));
     this.getInventory()
