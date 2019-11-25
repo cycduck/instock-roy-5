@@ -1,5 +1,5 @@
 import React from 'react'
-import AddModalBtn from '../AddModalBtn/AddModalBtn';
+import {Link} from 'react-router-dom';
 import nextArrow from '../../assets/Icons/SVG/Icon-arrow-right.svg';
 import './WarehouseCard.scss';
 
@@ -13,7 +13,7 @@ export default class WarehouseCard extends React.Component{
         return(
             <React.Fragment>
                 <div className="warehouse">  
-                    <img className="warehouse__next-arrow" src={nextArrow} alt="next arrow icon"/>
+                    <Link to={`/warehouse/${this.props.warehouse.id}/inventory`}><img className="warehouse__next-arrow" src={nextArrow} alt="next arrow icon"/></Link>
                     <div className="warehouse__item warehouse__item--full">
                         <p className="warehouse__info warehouse__info--head">{this.props.warehouse.name}</p>
                         <p className="warehouse__info">{this.props.warehouse.address.street}</p>
