@@ -3,7 +3,6 @@ import './Inventory.scss';
 
 import ProductCard from '../ProductCard/ProductCard';
 import AddModalBtn from '../AddModalBtn/AddModalBtn';
-import InventoryModal from '../InventoryModal/InventoryModal';
 
 export default class Inventory extends React.Component{
     state={
@@ -15,11 +14,12 @@ export default class Inventory extends React.Component{
             return <ProductCard key={item.id} product={item}/>
         });
     }
+
     errorHandle = () => {
         console.error('Failed to fetch inventory');
         return null
     }
-
+    
     modalHandle = (event) => {
         this.setState({
             isOpen : !this.state.isOpen

@@ -24,8 +24,18 @@ export default class App extends React.Component {
     }
   }
 
+  async getInventory() {
+    try{
+        let inventoryData = await axios.get(`http://localhost:8080/inventory`);
+          this.setState({inventory : inventoryData.data})
+    }
+    catch(error) {
+      alert(error);
+    }
+  }
+
   componentDidMount(){
-    this.getLocation();
+    this.getInventory();
   }
  
   
@@ -33,7 +43,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
           <Header/>
-          {/* <Inventory inventory={this.state.inventory}/> */}
+          <Inventory inventory={this.state.inventory}/>
           {/* <Location location={this.state.location}/> */}
           {/* <ProductPage product={this.object}/> */}
           <WarehouseInfo/>
