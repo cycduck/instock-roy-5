@@ -8,21 +8,22 @@ export default class InventoryData extends Component {
 
 state = {
     toggle: false
+    
 }
 
 //Makes Remove button appear
 handleToggle=(event)=>{
     event.preventDefault();
     this.setState({
-        toggle: true
-    })
+        toggle: !this.state.toggle
+})
 }
 
-//makes remove button disappear
+// makes remove button disappear
 handleOutsideClick=(event)=>{
     if(this.state.toggle){
         this.setState({
-            toggle: false
+            toggle: !this.state.toggle
         })
     }
 }
@@ -39,7 +40,6 @@ componentWillUnmount(){
 
 
 render() {
-    
     return (
     <div className="inventoryData__container">
         <div className="inventoryData__label-container-tablet">
@@ -54,13 +54,14 @@ render() {
             <div className='inventoryData__blue-circle'>
                 <img className='inventoryData__plus-icon' src={plusIcon} alt=""/> 
             </div>
-        {this.props.data.map(item => {
+        {this.props.data.map(item  => {
+            
         return (
             <div key={item.id} className="inventoryData__sub-container">
             <div className="inventoryData__item-container">
                 <div className="inventoryData__ellipsisMenu-btn">
-                <img src={ellipsisKebabMenu} alt="" onClick={this.handleToggle}/>
-                {this.state.toggle ? <Removebtn /> : null}
+                <img  className='inventoryData__ellipsisMenu-icon' src={ellipsisKebabMenu} alt="" onClick={this.handleToggle}/>
+                {this.state.toggle ?  <Removebtn  /> : null}
                 </div>
                 <div className="inventoryData__item-title-container">
                 <p className="inventoryData__label">ITEM</p>
@@ -92,7 +93,7 @@ render() {
                 </div>
                 <p className="inventoryData__status-txt">{item.isInstock ? "In Stock" : "Out Of Stock"}</p>
                 <div className="inventoryData__ellipsisMenu-btn inventoryData__ellipsis-tablet-style">
-                <img src={ellipsisKebabMenu} alt=""
+                <img className='inventoryData__ellipsisMenu-icon' src={ellipsisKebabMenu} alt=""
                 onClick={this.handleToggle}/>
                 {this.state.toggle ? <Removebtn /> : null}
                 </div>

@@ -105,14 +105,21 @@
 
     &__ellipsisMenu-btn{
         display: flex;
-        align-self: flex-start;
-        justify-self: flex-start;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
         float: right;
 
         @include tablet { 
         visibility: hidden;
         }
     }
+
+    &__ellipsisMenu-icon{
+        margin-bottom: 10px;
+
+    }
+
     &__blue-circle{
         position: fixed;
         margin-left: 200px;
@@ -153,9 +160,12 @@
         @include tablet {
         visibility: visible;
         display: flex;
-        align-self: center;
-        justify-self: center;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
         float: right;
+        width: 50%;
+        height: 50%;
         }
     }
 

@@ -2,11 +2,23 @@
 @import '../scss/mixin.scss' ;
 @import '../scss/variable.scss';
 
-.test{
-    color: red;
-}
 
-.test-container{
-    border: solid 2px black;
-    height: 30px;
+.Removebtn{
+
+    &__btn-container{
+    border: solid 1px $text-field-border;
+    height: 44px;
+    width: 161px;
+    border-radius: 4px;
+
+    @include tablet {
+    position: absolute;
+    margin-top: 50px;
+    }
+    }
+
+    &__btn{
+    padding-top: 10px;
+    padding-left: 10px;
+    }
 }
