@@ -50,9 +50,14 @@ export default class ModalWH extends React.Component {
     if (this.state) {
       
       let arrayOfEmptyFields = Object.keys(this.state).filter(info => !this.state[info] ) 
-      console.log(arrayOfEmptyFields)
-      if ( arrayOfEmptyFields.length = 0) { // only submit when there are no empty fields
+      const regexForEmail = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+
+      if ( arrayOfEmptyFields.length === 0  ) { // only submit when there are no empty fields
+        const validate = !isNaN(Number(e.target.phone.value)) && regexForEmail.test(e.target.email.value.trim()) ? true : false
+        
         console.log('axios working')
+        if (validate === true) {
+
           axios.post("http://localhost:8080/warehouse", {
             name: e.target.warehouse.value,
             address: {
@@ -72,12 +77,14 @@ export default class ModalWH extends React.Component {
           }).catch(err => {
             console.log(err);
           });
-        } else {
-          console.log(arrayOfEmptyFields)
-          arrayOfEmptyFields.forEach(info => console.log(info))
         }
+      } else {
+        console.log(arrayOfEmptyFields)
+        arrayOfEmptyFields.forEach(info => console.log(info))
+        // need to figure out how to make this work...
       }
-  };
+    }
+};
 
 
 
