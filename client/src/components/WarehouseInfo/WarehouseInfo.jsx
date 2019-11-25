@@ -44,13 +44,7 @@ export default class WarehouseInfo extends React.Component{
                 </div>
                 <div className="warehouse-info__product-wrapper">
                     <div className="warehouse-info__product-container">
-                        <ProductCard product={this.object}/>
-                        <ProductCard product={this.object}/>
-                        <ProductCard product={this.object}/>
-                        <ProductCard product={this.object}/>
-                        <ProductCard product={this.object}/>
-                        <ProductCard product={this.object}/>
-
+                        {productList}
                     </div>
                 </div>
             </section>
