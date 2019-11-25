@@ -45,21 +45,25 @@
     @include tablet {
         display: flex;
         flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
         padding-bottom: 24px;
     }
+    @include desk-plus {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 24px;
+    }
+
 }
     &__loc-tablet-style {
         @include tablet {
             display: flex;
             flex-direction: row;
-            
             justify-content: space-between;
     }
-    @include desk-plus {
-        display: none;
+        @include desk-plus {
+            padding-top: 3.5rem;
     }
+
 }
 
 // location info
@@ -74,17 +78,30 @@
     }
     @include desk-plus {
         flex-direction: column;
+        width: 230px;
     }
     }
 
     &__loc-label {
-        margin-bottom: 16px;
+        margin-bottom: 5px;
         font-weight: bold;
-        }
+    @include desk-plus {
+        margin-top: 0px;
+    }
+    }
 
     &__loc-address-details {
-        margin-bottom: 16px;
+        margin-bottom: 5px;
+    @include desk-plus {
+        margin-top: 0px;
+    }   
+    
 
+    &__loc-city-details {
+        margin-bottom: 5px;
+        margin-top: 0px; 
+
+    }
     }
 // location contact 
     &__loc-contact-container {
@@ -215,16 +232,14 @@
     // Hide titles on mobile and tablets in CSS for containers
 
     &__desktop-title-container {
-        @include mobile {
-            display: none;
-        }
-        @include desk-plus {
-            display: contents;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             margin-bottom: 16px;
             color: $text-label-style;
+
+        @include mobile-tablet {
+            display: none;
         }
     }
 
@@ -234,6 +249,7 @@
         }
         @include desk-plus {
             display: contents;
+            width: 230px;
         }
     }
 
@@ -255,7 +271,7 @@
         }    
     }
 
-    &__desktop-title-categories{
+    &__desktop-title-categories { 
         @include mobile { 
             display: none;
             }
@@ -264,27 +280,27 @@
         }
     }
 
-    &__desktop-title-warehouse{
+    &__desktop-title-location {
         @include desk-plus {
-            width: 20%;
+            width: 230px;
         }
     }
 
-    &__desktop-title-contact-name{
+    &__desktop-title-contact-name {
         @include desk-plus {
-            width: 22%
+            width: 230px;
         }
     }
 
-    &__desktop-title-contact-info{
+    &__desktop-title-contact-info {
         @include desk-plus {
-            width: 22%
+            width: 240px;
         }
     }
 
-    &__desktop-title-categories{
+    &__desktop-title-categories {
         @include desk-plus {
-            width: 22%
+            width: 230px;
             
         }
     }

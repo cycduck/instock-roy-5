@@ -24,7 +24,8 @@ render() {
             <div className="warehouseInfo__loc-container">
                 <div className="warehouseInfo__loc-addr-container">
                     <p className="warehouseInfo__loc-label">WAREHOUSE NAME {item.id}</p>
-                    <p className="warehouseInfo__loc-address-details">{item.address.street}, {item.address.suiteNum}, {item.address.city}, {item.address.province}</p>
+                    <p className="warehouseInfo__loc-address-details">{item.address.street}, {item.address.suiteNum}, </p>
+                    <p className="warehouseInfo__loc-city-details"> {item.address.city}, {item.address.province}</p>
                 </div>
                 <div className="warehouseInfo__loc-tablet-style">
                     <div className="warehouseInfo__loc-contact-container">
