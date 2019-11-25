@@ -27,13 +27,12 @@ export default class App extends React.Component {
   componentDidMount(){
     this.getLocation();
   }
- 
   
   render() {
     return (
       <div className="App">
           <Header/>
-          {/* <Inventory inventory={this.state.inventory}/> */}
+          <Inventory inventory={this.state.inventory}/>
           {/* <Location location={this.state.location}/> */}
           {/* <ProductPage product={this.object}/> */}
           <WarehouseInfo/>
