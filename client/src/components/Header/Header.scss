@@ -56,11 +56,12 @@
         @include desk-plus() {
         }
       }
-      .nav__item-active {
-        border-bottom: 5px solid #ffffff;
-        @include tablet() {
-          margin-top: 5px;
-        }
-      }
+    }
+  }
+
+  .nav__item--active {
+    border-bottom: 5px solid #ffffff;
+    @include tablet() {
+      margin-top: 5px;
     }
   }

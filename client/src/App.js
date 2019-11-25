@@ -68,18 +68,13 @@ export default class App extends React.Component {
     this.getLocation();
     this.getInventory();
   }
-  }
   handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/inventory/${id}`)
-    .then((response) => {
-
-    })
+    axios.delete(`http://localhost:8080/inventory/${id}`).catch(error=>console.log(error));
     this.getInventory()
 }
   render() {
     return (
       <div className="App">
-
           <BrowserRouter>
             <Header/>
             <Switch>
@@ -90,6 +85,6 @@ export default class App extends React.Component {
             </Switch>
           </BrowserRouter>
       </div>
-    );
+    )
   }
 }
