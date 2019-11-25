@@ -14,9 +14,19 @@ export default class ProductCard extends React.Component{
     }
 
     handleKebab = () => {
+        console.log('this got handled')
         this.setState({
             isRemove : !this.state.isRemove
         })
+    }
+    handleWindow = () => {
+            this.handleKebab();
+            document.removeEventListener('click', this.handleWindow);
+    }
+    componentDidUpdate(){
+        if(this.state.isRemove === true){
+            document.addEventListener('click', this.handleWindow)
+        }
     }
     render(){
         if(!this.props.product){return null}

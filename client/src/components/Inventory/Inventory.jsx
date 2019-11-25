@@ -14,11 +14,12 @@ export default class Inventory extends React.Component{
             return <ProductCard key={item.id} product={item} handleDelete={this.props.handleDelete}/>
         });
     }
+
     errorHandle = () => {
         console.error('Failed to fetch inventory');
         return null
     }
-
+    
     modalHandle = (event) => {
         this.setState({
             isOpen : !this.state.isOpen
