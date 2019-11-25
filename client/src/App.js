@@ -11,7 +11,7 @@ import WarehouseInfo from './components/WarehouseInfo/WarehouseInfo';
 export default class App extends React.Component {
   state = {
     isOpen : true,
-    componentIsMounted : false
+    componentIsMounted : false,
   }
 
   async getLocation() {
