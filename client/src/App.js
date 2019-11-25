@@ -39,11 +39,19 @@ export default class App extends React.Component {
     
   }
   
+  handleDelete = (id) => {
+    axios.delete(`http://localhost:8080/inventory/${id}`)
+    .then((response) => {
+
+    })
+    this.getInventory()
+}
+
   render() {
     return (
       <div className="App">
           <Header/>
-          <Inventory inventory={this.state.inventory}/>
+          <Inventory inventory={this.state.inventory} handleDelete={this.handleDelete}/>
           {/* <Location location={this.state.location}/> */}
           {/* <ProductPage product={this.object}/> */}
           {/* <WarehouseInfo/> */}
