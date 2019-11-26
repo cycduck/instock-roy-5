@@ -54,16 +54,7 @@ export default class App extends React.Component {
       return this.state.location.find(location => location.id === warehouseId)
     }
   }
-
-  async getInventory() {
-    try{
-        let inventoryData = await axios.get(`http://localhost:8080/inventory`);
-          this.setState({inventory : inventoryData.data})
-    }
-    catch(error) {
-      alert(error);
-    }
-  }
+  
   componentDidMount(){
     this.getLocation();
     this.getInventory();

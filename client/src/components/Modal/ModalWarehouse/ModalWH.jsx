@@ -1,7 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
 import "./modalWH.scss";
-import { throwStatement } from "@babel/types";
 import Button from "../Button/Button";
 import axios from "axios";
 
@@ -74,7 +73,6 @@ export default class ModalWH extends React.Component {
     return (
       <Modal
         isOpen={this.props.isOpen} // required prop
-        onRequestClose={this.props.isOpen}
         contentLabel="whatisthis"
         className="modalWH"
         overlayClassName="modalWH__overlay"
@@ -187,7 +185,6 @@ export default class ModalWH extends React.Component {
             </div>
           </div>
           <div className="formWH__label-input">
-            {/* classname name onclick */}
             <Button className="formWH__save" name="save" />
             <Button
               type="button"

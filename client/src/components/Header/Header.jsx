@@ -5,16 +5,6 @@ import './Header.scss';
 import instock from '../../assets/Logo/Logo-instock.svg';
 
 export default class Header extends React.Component{
-    inventory = true
-    location = false
-    handleInventory = () => {
-       this.inventory = false;
-       this.location = true;
-    }
-    handleLocation = () => {
-        this.inventory = true;
-        this.location = true;
-     }
     render(){
         return(
             <header className="header">

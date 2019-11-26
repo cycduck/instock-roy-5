@@ -22,6 +22,7 @@ export default class Inventory extends React.Component{
     }
     
     modalHandle = (event) => {
+        console.log('inventory modale')
         this.setState({
             isOpen : !this.state.isOpen
         })

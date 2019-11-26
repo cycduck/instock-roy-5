@@ -24,17 +24,8 @@ export default class Modal extends React.Component {
 
   onChange = e => {
     console.log(e.target.name, e.target.value);
-
-    // // (1)
-    // const newForm = this.state.form;
-    // newForm[e.target.name] = e.target.value;
-    // this.setState({
-    //   form: newForm
-    // })
-
-    // (2)
     this.setState({ form: {
-      ...this.state.form, // taking the old form object making sure the properties are there, then adding a new property
+      ...this.state.form, 
       [e.target.name ]: e.target.value
     } });
   };
@@ -49,7 +40,6 @@ export default class Modal extends React.Component {
       });
       console.log(arrayOfEmptyFields);
       if (arrayOfEmptyFields.length === 0) {
-        // only submit when there are no empty fields
 
         console.log("axios working");
 
@@ -77,11 +67,9 @@ export default class Modal extends React.Component {
     this.setState({ checked });
   }
   render() {
-    console.log(this.props.isOpen);
     return (
       <ReactModal
         isOpen={this.props.isOpen}
-        onRequestClose={this.props.isOpen}
         contentLabel="Minimal Modal Example"
         overlayClassName="modal-form__overlay"
         className="modal"
@@ -194,7 +182,7 @@ export default class Modal extends React.Component {
               type="button"
               className="formWH__cancel"
               name="cancel"
-              onClick={this.props.handleModalWH}
+              onClick={this.props.modalHandle}
             />
           </div>
         </form>

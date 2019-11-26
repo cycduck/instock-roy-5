@@ -7,7 +7,7 @@ import ModalWH from '../Modal/ModalWarehouse/ModalWH';
 
 export default class Location extends React.Component{
     state={
-        isOpen : true
+        isOpen : false
     }
 
     locationList = (location) => {
@@ -21,8 +21,6 @@ export default class Location extends React.Component{
     }
     
     modalHandle = (event) => {
-        console.log("event.target")
-        // this.isOpen = !this.isOpen
         this.setState({
             isOpen : !this.state.isOpen
         })
