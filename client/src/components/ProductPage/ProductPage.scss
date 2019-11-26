@@ -6,8 +6,14 @@
     flex-direction: column;
     justify-content: center;
     margin: 24px 16px;
+    
     @include tablet(){
         margin: 0 24px;
+    }
+    @include desk-plus {
+        max-width: 1080px;
+        margin: 0 auto;
+
     }
     &__top{
         display: flex;
