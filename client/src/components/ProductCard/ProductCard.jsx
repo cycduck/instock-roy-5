@@ -24,7 +24,7 @@ export default class ProductCard extends React.Component{
                 <div className="product" id={this.props.product.id}>
                         <img onClick={this.handleKebab} className="product__kebab" src={kebab} alt="kebab"/>
                         { this.state.isRemove ? <button className="product__remove-btn" onClick={()=>{this.props.handleDelete(this.props.product.id)}}>Remove</button> : null }         
-                <Link to={`/inventory/${this.props.product.id}`} className='link'>    
+                <Link to={`/inventory/${this.props.product.id}`} className='link'></Link>
                     <div className="product__item">
                         <p className="product__label">Item</p>
                         <p className="product__name">{this.props.product.name}</p>
@@ -46,7 +46,6 @@ export default class ProductCard extends React.Component{
                         <p className="product__label">Status</p>
                         <p className="product__info">{!this.props.product.isInstock ? 'Out of Stock' : 'In Stock'}</p>
                     </div> 
-                    </Link>
                 </div>
                 <hr className="product__ruler"></hr>
             </>

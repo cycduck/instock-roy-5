@@ -74,8 +74,9 @@
 }
 
 .link{
-    text-decoration: none;
-    color: black;
-    display: flex;
-    width: 120%;
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
