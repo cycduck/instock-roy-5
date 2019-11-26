@@ -77,10 +77,11 @@ export default class Modal extends React.Component {
     this.setState({ checked });
   }
   render() {
-    console.log(this.state.checked);
+    console.log(this.props.isOpen);
     return (
       <ReactModal
-        isOpen={this.props.isModal}
+        isOpen={this.props.isOpen}
+        onRequestClose={this.props.isOpen}
         contentLabel="Minimal Modal Example"
         overlayClassName="modal-form__overlay"
         className="modal"
@@ -190,6 +191,7 @@ export default class Modal extends React.Component {
             {/* classname name onclick */}
             <Button className="formWH__save" name="save" />
             <Button
+              type="button"
               className="formWH__cancel"
               name="cancel"
               onClick={this.props.handleModalWH}

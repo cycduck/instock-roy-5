@@ -3,6 +3,7 @@ import './Inventory.scss';
 
 import ProductCard from '../ProductCard/ProductCard';
 import AddModalBtn from '../AddModalBtn/AddModalBtn';
+import Modal from '../Modal/Modal/Modal';
 
 export default class Inventory extends React.Component{
     state={
@@ -30,6 +31,7 @@ export default class Inventory extends React.Component{
         const productList = (!this.props.inventory) ? this.errorHandle() : this.productList(this.props.inventory)
         return(
             <section className="inventory">
+                <Modal isOpen={this.state.isOpen} modalHandle={this.modalHandle}/>
                 <div className="inventory-top">
                     <h1 className="inventory-top__title">Inventory</h1>
                     <input className="inventory-top__search-bar" placeholder="Search"></input>

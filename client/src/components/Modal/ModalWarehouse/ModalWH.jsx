@@ -70,10 +70,11 @@ export default class ModalWH extends React.Component {
 
 
   render() {
+    console.log(this.props.modalHandle)
     return (
       <Modal
-        isOpen={this.props.isModalWH} // required prop
-        onRequestClose={this.props.handleModalWH}
+        isOpen={this.props.isOpen} // required prop
+        onRequestClose={this.props.isOpen}
         contentLabel="whatisthis"
         className="modalWH"
         overlayClassName="modalWH__overlay"
@@ -189,9 +190,10 @@ export default class ModalWH extends React.Component {
             {/* classname name onclick */}
             <Button className="formWH__save" name="save" />
             <Button
+              type="button"
               className="formWH__cancel"
               name="cancel"
-              onClick={this.props.handleModalWH}
+              onClick={this.props.modalHandle}
             />
           </div>
         </form>
